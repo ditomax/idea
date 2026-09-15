@@ -101,7 +101,7 @@ Under time pressure, run it compact: one question, the single most friction-lade
 
 ### 6. The card
 
-**ID:** `<code>-<number>`, e.g. `DPM-003`, assigned in order of creation from the index in `00-idea.md`; never reused.
+**ID:** `<code>-<number>`, e.g. `PMK-003`, assigned in order of creation from the index in `00-idea.md`; never reused.
 
 **Status:** `sketch` (fast capture: opportunity, department, process & systems rough, cost of status quo estimated, origin) or `done` = evaluation-ready (every field addressed — `[unknown]` is a value, an empty field is not). Complete sketches later in the session or in a follow-up.
 
@@ -127,7 +127,7 @@ Known formats, mapped without questions:
 
 | Format | Columns | Mapping |
 | --- | --- | --- |
-| `xlsx-12col` (Twingz/Doepke card export) | ID · Titel · Beschreibung · Beteiligte Rollen · Datenquellen · Technische Voraussetzungen · Erwarteter Nutzen · Herausforderungen · Status · Kosten (geschätzt) · Datum · Modus | Titel → card title; Beschreibung + Erwarteter Nutzen → Opportunity; Beteiligte Rollen → Stakeholders & needs (role → need `[unknown]`) and Department(s); Datenquellen + Herausforderungen (data parts) → Data situation `[estimated]`; Status → status; Technische Voraussetzungen, Kosten (geschätzt), Herausforderungen (rest) → Imported section; Datum, Modus → Origin line |
+| `xlsx-12col` (flat spreadsheet card export, German column names) | ID · Titel · Beschreibung · Beteiligte Rollen · Datenquellen · Technische Voraussetzungen · Erwarteter Nutzen · Herausforderungen · Status · Kosten (geschätzt) · Datum · Modus | Titel → card title; Beschreibung + Erwarteter Nutzen → Opportunity; Beteiligte Rollen → Stakeholders & needs (role → need `[unknown]`) and Department(s); Datenquellen + Herausforderungen (data parts) → Data situation `[estimated]`; Status → status; Technische Voraussetzungen, Kosten (geschätzt), Herausforderungen (rest) → Imported section; Datum, Modus → Origin line |
 
 ## Hand-back
 

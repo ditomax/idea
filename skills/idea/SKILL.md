@@ -50,7 +50,7 @@ Say which layout you found only if the user asks.
 
 Ask one question at a time:
 
-1. **Organisation and code:** which company or department, and a 2–4 letter code that will prefix every card ID (Vertrieb → VTR, Doepke Produktmarketing → DPM). Propose the code, let the user correct. A profile may fix both.
+1. **Organisation and code:** which company or department, and a 2–4 letter code that will prefix every card ID (Vertrieb → VTR, Produktmarketing → PMK). Propose the code, let the user correct. A profile may fix both.
 2. **Mode of collect:** solo (the user works on their own ideas), collector (the user interviews colleagues and reports back), or import (ideas already exist in a file). Can change per session.
 3. **Git:** check silently whether the folder or a parent is a git repo (`git rev-parse --is-inside-work-tree` if a shell is available; else look for `.git`). Record `yes`/`no`. Never run `git init`; with `yes`, commits follow RULES §6. Tell the user the result in half a sentence.
 4. **Language** of result files: English by default; a profile may set it; the language the user writes in overrides that; an explicit statement by the user ("I write German, the cards shall be English") overrides everything. Confirm the result in half a sentence.

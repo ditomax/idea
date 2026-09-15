@@ -31,7 +31,7 @@ You can stop at any time. Whatever exists by then stays in the `ideas/` folder a
 
 ## Where is what?
 
-Every organisation or department gets its own subfolder in `ideas/`, for example `ideas/DPM-doepke-produktmarketing/`. Inside are the cards (`cards/`), the evaluations (`evaluations/`) and the shortlist (`10-shortlist.md`). Everything opens in any text editor. At the end of every file there is a section **Notes (human)**: leave your own remarks there, the AI never touches it.
+Every organisation or department gets its own subfolder in `ideas/`, for example `ideas/PMK-product-marketing/`. Inside are the cards (`cards/`), the evaluations (`evaluations/`) and the shortlist (`10-shortlist.md`). Everything opens in any text editor. At the end of every file there is a section **Notes (human)**: leave your own remarks there, the AI never touches it.
 
 ## What happens with the shortlist?
 
