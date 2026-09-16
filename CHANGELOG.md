@@ -1,7 +1,7 @@
 # Changelog — idea
 
 ## 0.1.5 — 2026-09-16
-Consistency fix: README documents the same optional dev symlink (`skills/idea*`) as maquette/build instead of denying symlinks outright. No contract change.
+Consistency fix: README documents the same optional dev symlink (`skills/idea*`) as maquette/build instead of denying symlinks outright; German-only language aside removed, its content folded into the English text (a customer-variant concern, not the base README's); Release section gained the "Repository: … releases at …" line, matching maquette/build. No contract change.
 
 ## 0.1.4 — 2026-09-16
 Onboarding: README § For agents (clone/ZIP, folder default, layout choice), AGENTS.md guard for subfolder and no-local-copy cases, START fallback names the folder. Director: git `yes` only if the work folder is tracked (a clone counts as no); `examples/` with fictitious finished results (Example GmbH). Templates: shortlist ranking gains a Decision column (H1/1 additive); evaluation Origin gains `estimated (moderator)`; card Views line stays with "—" instead of being omitted. Director: `status: done` bumps revision (§4.4); honest handover sentence for standalone maquette. No contract change.

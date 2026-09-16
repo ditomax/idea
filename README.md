@@ -4,7 +4,7 @@
 
 Version: see `VERSION` · September 2026 · DMBG · https://github.com/ditomax/idea
 
-_Deutsch: Für Anwender genügt `START.md` — drei Schritte, keine Installation. Gespräch und Ergebnisdateien folgen Ihrer Sprache; die Überschriften in den Vorlagen bleiben englisch._
+For users, `START.md` is enough — three steps, no installation. Conversation and output files follow the user's language; headings in the templates stay in English.
 
 ## For agents
 
@@ -98,6 +98,8 @@ Optional. Skills never create a repository; if one exists, a commit marks a froz
 ## Release
 
 Development clones activate the customer-data guard once: `git config core.hooksPath hooks` (the hook calls `guard.py` from the sibling `skill-suite-setup` repo and blocks commits that carry customer markers). Release ZIPs are built with `skill-suite-setup/release.py`, which ships only git-tracked, allowlisted, guard-clean files.
+
+Repository: https://github.com/ditomax/idea — releases at https://github.com/ditomax/idea/releases.
 
 New version: bump `VERSION`, tag `vX.Y.Z`, GitHub release with the folder attached as `idea-vX.Y.Z.zip`. Users update by downloading the new folder and copying their `ideas/` (and `profile/`) across.
 
