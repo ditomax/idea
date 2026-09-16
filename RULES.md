@@ -98,10 +98,19 @@ Skills never push, rebase or branch. Whether `planning/` is committed at all is 
 
 At the end of a stage, the stage skill reports in one short block: files written (names, revisions), status (`done` proposed / `in_progress`), minutes used, open questions count. Only the Director sets `status: done` and updates `00-idea.md`.
 
-## 8. Profile (reserved)
+## 8. Profile
 
-A workspace may contain a `profile/` folder with customer-specific constraints: department list and codes, company goals for the strategy-link field, effort-class thresholds for V6, applicable norms and the contact persons for V8, default language. When it exists, the Director reads it at start and passes the relevant parts to each stage. **A profile may restrict, never loosen:** write rules, git behaviour and "nothing outside the folder" stay as defined here. Format: `profile/README.md`.
+A workspace may contain a `profile/` folder with customer-specific constraints. **The profile format is owned by the setup skill** (skill-suite-setup, design §5); this skillset only reads it. The Director reads `profile/profile.md` at every start and passes the files it names to the stages. **A profile may restrict, never loosen:** write rules, git behaviour and "nothing outside the workspace" stay as defined here. An absent or empty `profile/` means core defaults.
 
+Files this skillset reads: `profile.md`, `questions.md`, `scope.md` (departments, topic limits, company goals → Strategy link), `standards.md` (norms with contacts for V8, effort classes for V6), `import-formats.md` (the customer's own card formats for collect's import mode).
+
+**`profile/questions.md`** tailors the questions listed in `QUESTIONS.md` by ID:
+
+- `skip <ID>` with a value — the stage shows the value as prefilled ("from your profile: …"), lets the user correct it once, records the answer in its result file; the profile itself is never edited.
+- `add after <ID>` with a question — asked exactly once per stage run, right after the named question; the answer goes into the stage's result file under the closest section, marked `(profile)`.
+- Gate and safety questions (approvals, "good as it is?", stop) can never be skipped. Unknown IDs are reported at start, not silently ignored.
+
+The Director passes the rows of the coming stage to the stage skill together with the other profile constraints (§7 hand-back names which rows were applied).
 ## 9. Contracts
 
 - **H1 — out.** `10-shortlist.md` (contract `H1/1`) is the handover to maquette. Every entry is self-contained: card verbatim, evaluation, handover block. maquette ≥ 0.4.0 reads it, lets the user pick exactly one entry, and prefills its sparring stage from it. After `done`, the shortlist is not edited — a new committee round writes `10-shortlist.v2.md`.

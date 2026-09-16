@@ -1,16 +1,21 @@
-# profile/ — customer-specific constraints (reserved)
+# profile/ — customer-specific constraints
 
-This folder is empty in the public release. When an idea workspace is prepared for one customer, it holds that customer's constraints, and the Director reads it at every start (RULES §8).
+Empty in the public release. A customer version carries this customer's constraints here; the Director reads `profile.md` at every start (RULES §8). The format is owned by the setup skill — see https://github.com/ditomax/skill-suite-setup/blob/main/PROFILE.md. This skillset reads: `profile.md`, `questions.md`, `scope.md` (departments, topic limits, company goals → Strategy link), `standards.md` (norms with contacts for V8, effort classes for V6), `import-formats.md` (the customer's own card formats for collect's import mode).
 
-A profile may **restrict, never loosen**: write rules, git behaviour and "nothing outside the workspace" stay as defined in `RULES.md`. The profile shapes content and frame.
+A profile may **restrict, never loosen**. `questions.md` may skip (with a value) or add questions by the IDs in `QUESTIONS.md`.
 
-Planned files (the format is fixed with the first real profile):
+## Minimal example
 
-| File | Read by | Purpose |
-| --- | --- | --- |
-| `profile.md` | Director | customer, department codes, default language, session budgets, contact person |
-| `context.md` | collect | company goals and AI/data strategy (prefills the strategy-link field), department list for the interface round |
-| `evaluation.md` | evaluate | effort-class thresholds for V6, applicable norms and certifications with contact persons for V8, house-specific anchors if any |
-| `scope.md` | both | allowed topic areas and exclusions |
+Put this into `profile/profile.md` and the Director will use it at the next start:
 
-Until a profile exists, this README is the only file here and means "core defaults".
+```markdown
+# Profile — Example GmbH
+
+- **Customer:** Example GmbH
+- **Org code:** EXG
+- **Document language:** de
+- **Contact for questions:** Jane Doe, jane@example.com
+- **Profile files present:** none
+```
+
+Every further file (`questions.md`, `scope.md`, …) is optional; the field spec is in PROFILE.md linked above.

@@ -2,7 +2,9 @@
 
 **From "we should do something with AI" to a ranked shortlist — two markdown skills, one folder.**
 
-Version 0.1 · September 2026 · DMBG · https://github.com/ditomax/idea
+Version: see `VERSION` · September 2026 · DMBG · https://github.com/ditomax/idea
+
+_Deutsch: Für Anwender genügt `START.md` — drei Schritte, keine Installation. Gespräch und Ergebnisdateien folgen Ihrer Sprache; die Überschriften in den Vorlagen bleiben englisch._
 
 ## What it does
 
@@ -19,10 +21,12 @@ Collect never judges; evaluate never generates. That separation is the method: t
 
 ## Contracts
 
-- **Out — H1.** `10-shortlist.md` is read by maquette (≥ 0.4.0): the user picks exactly one entry, and maquette's sparring stage prefills from it instead of asking again. Every entry is self-contained.
+- **Out — H1.** `10-shortlist.md` (contract `H1/1`) is read by maquette (≥ 0.4.0; ≥ 0.5.0 also uses V4, V7 and "what would tip it"): the user picks exactly one entry, and maquette's sparring stage prefills from it instead of asking again. Every entry is self-contained.
 - **In — foreign cards.** Ideas that already exist in a spreadsheet or another tool enter through collect's import step, mapped onto cards with the gaps marked `[unknown]`; the mapping is remembered per format.
 
 Both seams are optional. maquette also starts from an idea in prose; idea also works without maquette.
+
+**Compatibility.** Out: `10-shortlist.md` is contract `H1/1`, read by maquette ≥ 0.4.0. In: none (foreign cards enter through collect's import). Version triples tested together are listed in [skill-suite-setup/compat.md](https://github.com/ditomax/skill-suite-setup/blob/main/compat.md). Changes: `CHANGELOG.md`.
 
 ## Structure
 
@@ -34,6 +38,9 @@ idea/
   VERSION
   README.md            this file
   RULES.md             shared rules for both stages — frontmatter, write rules, conversation rules, git, contracts
+  QUESTIONS.md         every question the skillset asks, with stable IDs — the tailoring surface for profiles
+  CHANGELOG.md         what changed per version
+  hooks/               pre-commit guard for development clones (see Release)
   ATTRIBUTION.md       where the method comes from
   profile/             optional customer-specific constraints (empty = core defaults)
   ideas/               the users' work, one subfolder per organisation (not in the repo)
@@ -56,7 +63,11 @@ The workspace above is the standalone form. Inside a project folder the suite is
 
 This folder is the workspace — repo and ZIP have the same structure. Users download the ZIP of a release, unzip it, open the folder in their AI app and type "start" (see `START.md`). `AGENTS.md` (Codex) and `CLAUDE.md` (Claude) are read automatically and make the agent the Director. Nothing to install, no symlinks, no global skill folders. No dependencies, no network access, no telemetry. `ideas/` is excluded from the repo via `.gitignore`.
 
-**ChatGPT / Mistral** (no folder access): the Director is dropped. Use the body of a stage skill (without frontmatter) as the system prompt, attach `RULES.md` and the matching template; `00-idea.md` is maintained by hand.
+**Chat tools without folder access** (plain ChatGPT, Le Chat, Perplexity): the collect stage of idea can run there as a single prompt file — ask us for it (produced with skill-suite-setup). The other stages need a folder.
+
+## Profiles
+
+Customer-specific variants (restricted topics, IT constraints, standards, corporate design, the customer's own review process, questions skipped or added) do not fork this repo. They live in a `profile/` folder the Director reads at start; a profile may restrict, never loosen. The format is specified in [skill-suite-setup/PROFILE.md](https://github.com/ditomax/skill-suite-setup/blob/main/PROFILE.md); a minimal example is in `profile/README.md`. `QUESTIONS.md` lists every question the skillset asks, with stable IDs — read it before a session, and use the IDs in a profile to skip or add questions.
 
 ## Language
 
@@ -67,6 +78,8 @@ All skill text, template headings, frontmatter keys and status values are Englis
 Optional. Skills never create a repository; if one exists, a commit marks a frozen state (a card done, an evaluation done, the shortlist done) and nothing else — the policy is in `RULES.md` §6.
 
 ## Release
+
+Development clones activate the customer-data guard once: `git config core.hooksPath hooks` (the hook calls `guard.py` from the sibling `skill-suite-setup` repo and blocks commits that carry customer markers). Release ZIPs are built with `skill-suite-setup/release.py`, which ships only git-tracked, allowlisted, guard-clean files.
 
 New version: bump `VERSION`, tag `vX.Y.Z`, GitHub release with the folder attached as `idea-vX.Y.Z.zip`. Users update by downloading the new folder and copying their `ideas/` (and `profile/`) across.
 

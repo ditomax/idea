@@ -30,7 +30,7 @@ Say which layout you found only if the user asks.
 
 ## Opening (every call)
 
-0. On the first greeting of a session, mention the version from `<suite>/VERSION` in half a sentence ("idea 0.1.0"). Nothing else about internals. If the profile folder exists and is not empty, read `profile/README.md` and every file it names; carry their constraints into each stage call (RULES §8).
+0. On the first greeting of a session, mention the version from `<suite>/VERSION` in half a sentence ("idea 0.1.3"). Nothing else about internals. If the profile folder exists and is not empty, read `profile/README.md` and every file it names; carry their constraints into each stage call (RULES §8). If `profile/questions.md` exists, read it: report unknown IDs once, and pass each stage the rows that name its questions (RULES §8).
 1. Find the workspace (above). Read `00-idea.md` if it exists: the card index, the session log, the imports table, the current stage.
 2. Determine where things stand:
    - no cards → **collect** is next;

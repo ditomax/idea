@@ -100,6 +100,9 @@ _Result of idea-evaluate and **contract H1** to maquette. Each entry is self-con
   - §5 guardrails ← Personal data, Legal / ethics / standards, waivers above
   - §9 riskiest assumption ← Riskiest assumption; cheapest test ← V10 note
   - Q4 smallest demo ← Minimum success criterion (as a starting point — sparring decides the demo)
+  - Field of application ← V4 solution pattern, Process & systems (proposed, sparring confirms)
+  - §5 guardrail candidate, §9 "if wrong" ← V7 damage class
+  - §3 premise ← "What would tip it"; Views and Dissent → Q1/Q3 hints or §8
 - **Open before or during the maquette:** <every `[unknown]` and every waiver, one line each — these become open questions in 10-seed.md §8>
 
 ### 2. <ID> — <title>
