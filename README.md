@@ -6,6 +6,15 @@ Version: see `VERSION` · September 2026 · DMBG · https://github.com/ditomax/i
 
 _Deutsch: Für Anwender genügt `START.md` — drei Schritte, keine Installation. Gespräch und Ergebnisdateien folgen Ihrer Sprache; die Überschriften in den Vorlagen bleiben englisch._
 
+## For agents
+
+If you are reading this from a link and have no local copy yet:
+
+1. Get one — `git clone https://github.com/ditomax/idea` or unzip the latest release from https://github.com/ditomax/idea/releases — into a folder the user chooses (default: `./idea` next to their other work). That download is the only network access; the "no network" rule in `AGENTS.md` applies from then on.
+2. Work from inside that folder and read its `AGENTS.md`. Do not act as the Director from this README — the rules live in `RULES.md` and `skills/`.
+3. Layout: standalone (this folder as is) unless the user has a project with a `planning/` folder — then the suite belongs at `planning/suite/idea/` and `planning/AGENTS.md` is the entry point, not this file.
+4. A clone gives updates via `git pull`; the user's work in `ideas/` is ignored by git, so nothing of it is ever committed to a clone. `hooks/`, `guard.py` and `skill-suite-setup` are for skillset developers — ignore them.
+
 ## What it does
 
 idea is the first of three skillsets — **idea → maquette → build** — that take an organisation from a vague wish to a shipped product without anyone re-explaining what an earlier step already established. This one finds and evaluates ideas:
@@ -15,7 +24,7 @@ idea is the first of three skillsets — **idea → maquette → build** — tha
 | 1 collect | interviewer | one employee (solo), or one collector who interviews colleagues, or an import of existing ideas | `cards/<ID>-card.md` — one idea card per idea, evaluation-ready but unscored | 45 min per session, 3–5 cards |
 | 2 evaluate | committee moderator | a committee, one writer at the keyboard | `evaluations/<ID>-eval.md` per card and `10-shortlist.md` — ranked, with reasons | 30 min per card, 30 min for the shortlist |
 
-A Director skill (`idea`) reads the folder, tells the user where they stand, and calls the stage. The user types `start`, then **next**, **redo** or **stop**.
+Finished results look like the files in `examples/` — one card, its evaluation and a two-entry shortlist for a fictitious company. A Director skill (`idea`) reads the folder, tells the user where they stand, and calls the stage. The user types `start`, then **next**, **redo** or **stop**.
 
 Collect never judges; evaluate never generates. That separation is the method: the interview surfaces pains before technology, the committee assesses concept maturity — never the person, never the idea — with ten fields, K.o. gates and an index anyone can recompute by hand. Where a K.o. field is unknown, the committee estimates or waives; ideas are never sent back and never silently dropped.
 
@@ -43,6 +52,7 @@ idea/
   hooks/               pre-commit guard for development clones (see Release)
   ATTRIBUTION.md       where the method comes from
   profile/             optional customer-specific constraints (empty = core defaults)
+  examples/            fictitious finished results — a card, an evaluation, a shortlist (Example GmbH)
   ideas/               the users' work, one subfolder per organisation (not in the repo)
   templates/           one template per result file (binding content definition)
     00-idea.md         control file
@@ -61,7 +71,15 @@ The workspace above is the standalone form. Inside a project folder the suite is
 
 ## Distribution and installation
 
-This folder is the workspace — repo and ZIP have the same structure. Users download the ZIP of a release, unzip it, open the folder in their AI app and type "start" (see `START.md`). `AGENTS.md` (Codex) and `CLAUDE.md` (Claude) are read automatically and make the agent the Director. Nothing to install, no symlinks, no global skill folders. No dependencies, no network access, no telemetry. `ideas/` is excluded from the repo via `.gitignore`.
+This folder is the workspace — repo and ZIP have the same structure. Users download the ZIP of a release, unzip it, open the folder in their AI app and type "start" (see `START.md`). `AGENTS.md` (Codex) and `CLAUDE.md` (Claude) are read automatically and make the agent the Director — nothing to install, no symlinks, no global skill folders.
+
+Developers who want the skills globally can additionally:
+
+```
+ln -s "$PWD/skills/"idea* ~/.codex/skills/      # or ~/.claude/skills/
+```
+
+No dependencies, no network access, no telemetry. `ideas/` is excluded from the repo via `.gitignore`.
 
 **Chat tools without folder access** (plain ChatGPT, Le Chat, Perplexity): the collect stage of idea can run there as a single prompt file — ask us for it (produced with skill-suite-setup). The other stages need a folder.
 
