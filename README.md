@@ -2,7 +2,7 @@
 
 **From "we should do something with AI" to a ranked shortlist — markdown skills, one folder.**
 
-Version: see `VERSION` · September 2026 · DMBG · https://github.com/ditomax/idea
+Version: see `VERSION` · September 2026 · https://github.com/ditomax/idea
 
 For users, `START.md` is enough — three steps, no installation. Conversation and output files follow the user's language; headings in the templates stay in English.
 

@@ -1,5 +1,8 @@
 # Changelog — idea
 
+## 0.2.3 — 2026-09-17
+README: section order aligned with maquette and build (For agents · overview · The suite · Contracts · Structure · Inside a project · Distribution · Profiles · Language · Git · Release · Origin · License). Text unchanged. No contract change. The company abbreviation DMBG is gone from the public texts: the product is simply the skill suite (idea → maquette → build); source credits in `ATTRIBUTION.md` name Dietmar Millinger.
+
 ## 0.2.2 — 2026-09-17
 Fixes from field test run-03 (ChatGPT/Codex). idea-merge: mandatory **read-back gate** before every write — conflict table (M4, never resolved silently), Variants/allocation table (M6), complete card incl. frontmatter; two new anti-patterns. Director: consistency checks on every start/next (also mid-conversation) and before every stage, `stale` written to the index before asking; relations are appended, never replaced (`from: …; merged into …`); after a redo `current: <file>@<rev>` in the Note column; all overlap groups named in one line. RULES §3: `input` paths relative to the work folder; §4.9 sharpened. idea-evaluate: card currency check before the round (stale cards not offered), evaluation written as `in_progress` before a merge hand-back once a field is confirmed, one complete entry for every ranked card (parked included, never duplicated under Parked / rejected), rubber-stamping note. Shortlist template: comments on Entries, Parked / rejected, verbatim prefill list, `input` with cards and evaluations. No contract change (H1/2).
 
