@@ -144,7 +144,7 @@ Per RULES §7, plus: the list of cards written (ID, title, status), threads stil
 | Smooth over contradictions | Record anonymised views; probe them — they are leads |
 | Attribute sensitive statements to persons | Anonymise ("from conversations") |
 | Score or select ideas | Deliver evaluation-ready; ranking happens in evaluate |
-| Drop ideas during consolidation | Merge with ID traces, record reasons |
+| Drop ideas during consolidation | Keep every card; cards that belong together go to the Director as a merge request (idea-merge writes the new card, the originals stay) |
 | Demand a complete card in one go | Sketch first; complete later |
 | Re-interview what an imported card already answers | Map, mark the gaps, ask only the gaps |
 | Run past the session budget | Offer to close; a follow-up session resumes at the open loop |

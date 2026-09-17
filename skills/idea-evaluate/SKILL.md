@@ -1,6 +1,6 @@
 ---
 name: idea-evaluate
-version: "0.1"
+version: "0.2"
 description: >
   Stage 2 of the idea skillset. Moderate a committee through the ten-field evaluation
   of idea cards (V1–V10 with K.o. gates), propose a traffic light per field for the
@@ -25,7 +25,7 @@ Two sentences in the user's language: you will take the cards one by one through
 Then, one at a time:
 
 1. **Committee:** who is at the table (roles, not names — they go into the shortlist anonymised) and who writes.
-2. **Cards:** read the index back; ask which cards are evaluated in this round and in which order. Cards with status `sketch` are allowed — say that their evaluation will lean on estimates and unknowns.
+2. **Cards:** read the card files again (not your memory of them) and check each card's currency: a card whose index Status is `stale`, or a merge card whose `input` cites an older source revision than the source file has, is **not offered** — hand back to the Director with "stale: <IDs>" before the round starts. Use the current version of each card (`current:` in the index Note). Read the index back; ask which cards are evaluated in this round and in which order. Cards with status `sketch` are allowed — say that their evaluation will lean on estimates and unknowns. Consumed cards (relation `merged into` / `split into`) are not offered; name the card that replaced them. For an umbrella card, say which variants it covers and ask whether the variants are evaluated too in this round (they may be, need not be).
 3. **Effort classes** for V6: defaults `< 10k` / `10–50k` / `> 50k` (build, without operation), unless the profile sets others.
 
 ## Committee mechanics
@@ -34,8 +34,10 @@ Then, one at a time:
 - **Ask, then propose.** Within a field: ask the guiding question, replay what you understood, *then* propose the light with one sentence. Never lead with an assessment and collect matching facts afterwards.
 - **The committee has the last word on every light.** Record each field's origin as `proposed`, `confirmed` or `corrected`. Corrections are the most valuable input you get; if they cluster on one field across cards, say so at the end — the anchors may need sharpening.
 - **Dissent is recorded, not resolved.** If the committee does not agree, the writer states the majority light and the dissenting view in one anonymised sentence; both go into the evaluation.
+- **Rubber-stamping.** If the committee confirms every proposal without discussion ("just confirm all"), say once: lights proposed from thin cards come out yellow, and an all-yellow card cannot exceed index 5–7 — the result then says little. Offer to go through the K.o. fields at least.
 - **Progress visible:** "field 4 of 10, card 2 of 5". About 3 minutes per field. If a field stalls, offer `[unknown]` and move on.
 - **Evidence marks** on every field: `[evidenced]`, `[estimated]`, `[unknown]`.
+- **Merge or split requested.** If the committee says two cards are really one idea, belong under one roof, or that a card holds two ideas: do not rewrite anything yourself. Finish or pause the current field. **If at least one field of the current card is confirmed, write its evaluation now with `status: in_progress`** (mandatory — the Director marks it `superseded` after the merge); if none is confirmed, write nothing and say so. Then hand back with "merge requested: <operation> <IDs>". The Director runs idea-merge and returns to you with the new card(s) added to the round.
 - **Prefill from the card** and read it back for correction instead of re-asking:
 
 | Card field | Prefills |
@@ -46,6 +48,8 @@ Then, one at a time:
 | Strategy link, Stakeholders & needs | V9 |
 | Riskiest assumption, Earlier attempts | V10 |
 | section "Imported, no field in this card" | V4, V6 hints |
+| Relation `consolidated from` / `split from` → the sources' superseded evaluations | a light **only where all sources agree**; where they differ, ask afresh and write the differing lights into the field's note ("sources: <ID> yellow, <ID> green"); cite the evaluations in `input` |
+| Umbrella card → the variants' evaluations, if any | hints only — the umbrella is evaluated as the shared solution; the Variants table stays on the card |
 
 ## The ten fields
 
@@ -118,9 +122,10 @@ When the committee has evaluated the cards it wanted (or stops):
 
 1. Read back all evaluations in one table: ID, title, index, tendency, confidence, K.o. state.
 2. Ask the committee for the **order**. The index sorts, the committee decides; if the order deviates from the arithmetic, ask for one sentence why and record it in the entry's rationale.
-3. Per shortlisted entry, ask what only the committee knows: **sponsor** (who decides after the maquette), **decision date**, **recommended mode** (workshop / discovery — propose from V6 and the tendency), and any **dissent** to record.
-4. Everything not shortlisted goes under "Parked / rejected" with a reason and a revisit condition. Nothing disappears.
-5. Write `10-shortlist.md` from the template: card verbatim, evaluation summary, K.o. lines, handover block per entry. Show it inline first, then write. Hand back with `done` proposed.
+3. **Maquette order (S7):** "Which entry goes into the next maquette — and if it is an umbrella, which variant(s) does the demo show?" Exactly one entry, or `open` with a reason. Record it under Maquette order and as `next_maquette` in the frontmatter; the rest follows by rank unless the committee names an order. An umbrella and its variants may all be on the shortlist; each is its own entry.
+4. Per shortlisted entry, ask what only the committee knows: **sponsor** (who decides after the maquette), **decision date**, **recommended mode** (workshop / discovery — propose from V6 and the tendency), and any **dissent** to record.
+5. Everything not shortlisted goes under "Parked / rejected" with a reason and a revisit condition; consumed cards go there as `merged into <ID>` / `split into <IDs>` without asking. Nothing disappears.
+6. Write `10-shortlist.md` from the template (contract H1/2) — **one complete entry for every ranked card, parked ones included**; ranked cards never appear under "Parked / rejected" as well: Maquette order, card verbatim incl. Relation, the Variants table for an umbrella entry (with each variant's rank here), evaluation summary, K.o. lines, handover block per entry. Show it inline first, then write. Hand back with `done` proposed.
 
 Header note whenever it applies: indices from different departments and sessions are a rough sorting aid, not a ranking.
 

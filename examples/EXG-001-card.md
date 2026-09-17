@@ -33,6 +33,11 @@ _Result of idea-collect. One card per idea, written in the language set for resu
 - **Minimum success criterion:** 8 of 10 standard offers finished from the draft in ≤ 30 minutes.
 - **Views:** not relevant for this idea
 - **Origin:** own idea
+- **Relation:** —
+
+## Variants
+
+not relevant for this card
 
 ## Imported, no field in this card
 

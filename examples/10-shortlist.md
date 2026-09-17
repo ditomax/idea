@@ -6,13 +6,20 @@ revision: 2
 created: 2026-09-15T11:30
 updated: 2026-09-15T11:55
 input: cards/EXG-001-card.md@4, cards/EXG-002-card.md@3, evaluations/EXG-001-eval.md@3, evaluations/EXG-002-eval.md@2
-contract: H1/1
+contract: H1/2
+next_maquette: EXG-001
 ---
 <!-- Example — fictitious Example GmbH. Shows what a finished file looks like; not a template. -->
 
 # Shortlist EXG: Sales committee round 2026-09-15
 
-_Result of idea-evaluate and **contract H1** to maquette. Each entry is self-contained: the maquette Director reads only this file, lists the entries by title, lets the user pick exactly one, and sparring prefills from that entry. Ideas never disappear: what is not on the shortlist is under "Parked / rejected" with a reason._
+_Result of idea-evaluate and **contract H1** to maquette. Each entry is self-contained: the maquette Director reads only this file, proposes the entry named under "Maquette order" (the user confirms or picks another — exactly one), and sparring prefills from that entry. Ideas never disappear: what is not on the shortlist is under "Parked / rejected" with a reason._
+
+## Maquette order
+
+- **Next maquette:** EXG-001 — Offer draft assistant
+- **Demo variant(s):** —
+- **Later:** EXG-002 after its revisit condition (Q1 2027)
 
 ## Session
 
@@ -54,6 +61,11 @@ _Result of idea-evaluate and **contract H1** to maquette. Each entry is self-con
 - **Minimum success criterion:** 8 of 10 standard offers finished from the draft in ≤ 30 minutes.
 - **Views:** not relevant for this idea
 - **Origin:** own idea
+- **Relation:** —
+
+#### Variants
+
+not relevant for this entry
 
 #### Evaluation
 
@@ -130,6 +142,11 @@ _Result of idea-evaluate and **contract H1** to maquette. Each entry is self-con
 - **Minimum success criterion:** 9 of 10 service e-mails reach the right group without a human touch.
 - **Views:** View A: most e-mails are obvious. / View B: the few unclear ones cause most of the delay.
 - **Origin:** conversation
+- **Relation:** —
+
+#### Variants
+
+not relevant for this entry
 
 #### Evaluation
 

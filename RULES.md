@@ -1,12 +1,13 @@
 # idea — Shared Rules for All Stage Skills
 
-**Version 1.** Every stage skill reads this file before doing anything. The Director (`idea`) enforces it. If a stage skill and this file disagree, this file wins. The rules are the same core as maquette's `RULES.md` v2 — one suite, one discipline.
+**Version 2** (idea 0.2.0: card operations, H1/2). Every stage skill reads this file before doing anything. The Director (`idea`) enforces it. If a stage skill and this file disagree, this file wins. The rules are the same core as maquette's `RULES.md` v2 — one suite, one discipline.
 
 ## 1. Vocabulary
 
 - **Idea workspace** — one folder holding everything the idea skillset produces for one organisation or department: the control file, the cards, the evaluations, the shortlist.
-- **Stage** — one of: collect → evaluate. Collect produces cards, evaluate produces evaluations and the shortlist.
-- **Card** — one idea, one file: `cards/<ID>-card.md`. Written by idea-collect.
+- **Stage** — one of: collect → (merge) → evaluate. Collect produces cards, merge produces cards from cards, evaluate produces evaluations and the shortlist. Merge is optional and may also run in the middle of an evaluate round.
+- **Card** — one idea, one file: `cards/<ID>-card.md`. Written by idea-collect, or by idea-merge for a card produced from other cards.
+- **Card operation** — idea-merge's work: **consolidate** (n cards → 1, sources consumed), **umbrella** (n cards → 1 umbrella card, sources stay active as its **variants**), **split** (1 card → n, source consumed). A **consumed** card keeps its file and ID; its evaluation becomes `superseded`.
 - **Evaluation** — the ten-field assessment of one card: `evaluations/<ID>-eval.md`. Written by idea-evaluate.
 - **Shortlist** — `10-shortlist.md`, the ranked handover to maquette (contract H1). Written by idea-evaluate.
 - **Director** — the `idea` skill. Reads the workspace, tells the user where they are, calls the stage skill, keeps `00-idea.md` true.
@@ -30,8 +31,9 @@ The project layout is recognised by a `planning/` folder above `<suite>`. In the
 <work>/
   00-idea.md                 Director        control: org, language, mode, sessions, card index, imports
   cards/<ID>-card.md         idea-collect    one idea per file
+                             idea-merge      cards produced by consolidate, umbrella, split
   evaluations/<ID>-eval.md   idea-evaluate   ten fields, arithmetic, tendency, confidence
-  10-shortlist.md            idea-evaluate   ranked handover to maquette (contract H1/1)
+  10-shortlist.md            idea-evaluate   ranked handover to maquette (contract H1/2)
 ```
 
 ## 3. Frontmatter
@@ -50,18 +52,21 @@ input: <file>@<revision>[, <file>@<revision>]
 ---
 ```
 
+Paths in `input` are relative to `<work>` (`cards/EXG-003-card.md@3`, `evaluations/EXG-007-eval.md@1`), never from the project root.
+
 `00-idea.md` additionally carries `org`, `code`, `language`, `git`, `profile` and the session log. Stage skills read those; only the Director writes them. `card.md` adds `source`; `10-shortlist.md` adds `contract`. A template may add stage-specific fields — copied from `00-idea.md` or defined in the template, never invented.
 
 ## 4. Write rules
 
 1. **One owner per file.** Write only files whose `owner` is your skill name. Read anything. If you believe another file is wrong, say so to the user and record it under "Open questions" in *your* file.
 2. **Done is frozen.** Never modify a file whose `status` is `done`. A rerun ("redo") writes `<name>.v2.md` (then `.v3.md` …) with `revision: 1` in the new file. The Director records which version is current in `00-idea.md`. Exception: a card with status `sketch` is not done — collect may complete it in a later session (revision + 1).
-3. **Findings flow forward, never backward.** What evaluate learns about a card goes into the evaluation, not into the card. Only the shortlist consolidates.
+3. **Findings flow forward, never backward.** What evaluate learns about a card goes into the evaluation, not into the card. Only the shortlist consolidates — and idea-merge, which writes *new* cards from existing ones and never touches the sources.
 4. **Optimistic locking.** Before writing: read the file, note `revision`. When writing: set `revision + 1` and `updated`. If the file's `revision` on disk is no longer what you read, do not overwrite — write `<name>.conflict.md` with your content and tell the user in one sentence.
 5. **Human notes are untouchable.** When rewriting a file, copy `## Notes (human)` verbatim from the existing file. Never edit, reorder, summarise or delete it. If the human wrote something there that changes your work, treat it as user input — act on it in your sections, leave theirs alone.
 6. **Cite your input.** `input` names the file(s) and revision(s) you read. If the Director marks your file `stale` (the input changed), you do nothing until the user says "redo".
 7. **Templates are the definition.** Fill the template from `templates/`. Keep every section heading, in order. A section that does not apply gets the line "not relevant for this idea" — never delete it. Remove the `<!-- -->` guidance comments and the `<…>` placeholders in the finished file.
-8. **Nothing disappears.** An idea that is merged, parked or rejected keeps its ID and gets a recorded reason. IDs are never reused.
+8. **Nothing disappears.** An idea that is merged, split, parked or rejected keeps its ID, its file and a recorded reason. IDs are never reused. Card relations (merged into, split into, variant of, from) are recorded in the card index of `00-idea.md` by the Director and in the new card's Relation line.
+9. **Relations propagate staleness.** A source card with a newer revision than a merge card cites → the merge card is `stale`, then its evaluation, then the shortlist. A variant consumed by a later operation → its umbrella is `stale`. The Director checks this at every `start`/`next` (also mid-conversation) and before every stage, and writes `stale` into the index before asking anything. Relations in the index are appended, never replaced.
 
 ## 5. Conversation rules
 
@@ -81,13 +86,14 @@ input: <file>@<revision>[, <file>@<revision>]
 
 ## 6. Git
 
-Git is optional and never created by a skill. `git` in `00-idea.md` is `yes` only if the workspace (or a parent) is a git repository at start; skills never run `git init`. With `git: no`, every commit step is skipped.
+Git is optional and never created by a skill. `git` in `00-idea.md` is `yes` only if the workspace (or a parent) is a git repository at start; skills never run `git init`. `yes` also requires that the work folder is tracked: a clone of the public idea repo ignores `ideas/` via `.gitignore`, so a clone counts as `no` — the Director checks with `git check-ignore`. With `git: no`, every commit step is skipped.
 
 With `git: yes`, a commit marks a **frozen state, never progress**:
 
 | Event | What is committed | Message |
 | --- | --- | --- |
 | a card reaches `status: done` (evaluation-ready) | that card | `idea(<code>): card <ID> done` |
+| a card operation is confirmed | the new card(s) + `00-idea.md` | `idea(<code>): <consolidate|umbrella|split> <source IDs> → <new IDs>` |
 | an evaluation reaches `status: done` | that evaluation | `idea(<code>): eval <ID> done` |
 | the shortlist reaches `status: done` | `10-shortlist.md` + `00-idea.md` | `idea(<code>): shortlist done` |
 | a session ends with sketches only | the sketches + `00-idea.md` | `idea(<code>): session <date> — <n> sketches` |
@@ -113,5 +119,5 @@ Files this skillset reads: `profile.md`, `questions.md`, `scope.md` (departments
 The Director passes the rows of the coming stage to the stage skill together with the other profile constraints (§7 hand-back names which rows were applied).
 ## 9. Contracts
 
-- **H1 — out.** `10-shortlist.md` (contract `H1/1`) is the handover to maquette. Every entry is self-contained: card verbatim, evaluation, handover block. maquette ≥ 0.4.0 reads it, lets the user pick exactly one entry, and prefills its sparring stage from it. After `done`, the shortlist is not edited — a new committee round writes `10-shortlist.v2.md`.
+- **H1 — out.** `10-shortlist.md` (contract `H1/2`) is the handover to maquette. H1/2 adds to H1/1: the section **Maquette order** with `next_maquette` in the frontmatter (the committee's instruction which entry is built next, and for an umbrella which variant the demo shows), the **Relation** line and the **Variants** table per entry. A reader of H1/1 ignores the additions. Every entry is self-contained: card verbatim, evaluation, handover block. maquette ≥ 0.6.0 proposes the entry named under Maquette order and lets the user confirm or pick another — always exactly one; maquette 0.4–0.5 lists the entries and lets the user pick. Either way sparring prefills from the chosen entry. After `done`, the shortlist is not edited — a new committee round writes `10-shortlist.v2.md`.
 - **Foreign cards — in.** Ideas that arrive in another format (a spreadsheet, a list, another tool's export) enter through idea-collect's import step, which maps them onto `cards/` and marks what the format could not answer `[unknown]`. The mapping used is recorded in `00-idea.md` so the next import of the same format needs no questions.

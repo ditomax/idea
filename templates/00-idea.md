@@ -12,7 +12,7 @@ code: <2–4 letters, prefixes every card ID, e.g. PMK>
 language: en                 # language of the result files' content
 git: no                      # yes | no — checked by the Director at start
 profile: none                # none | profile/ (if a profile folder exists)
-budget_min: {collect: 45, evaluate: 30, shortlist: 30}
+budget_min: {collect: 45, merge: 15, evaluate: 30, shortlist: 30}
 ---
 
 # Ideas <code>: <org>
@@ -27,11 +27,11 @@ budget_min: {collect: 45, evaluate: 30, shortlist: 30}
 
 ## Cards
 
-<!-- One row per card, in ID order. Status: sketch | done (evaluation-ready). Evaluation: — | in_progress | done | stale | parked. Never delete a row; a merged or rejected card keeps its row with the decision in the last column. -->
+<!-- One row per card, in ID order. Status: sketch | done (evaluation-ready) | stale (a source card changed after this merge card was written). Evaluation: — | in_progress | done | stale | parked | superseded. Relation (written by the Director from idea-merge's hand-back; several values separated by "; ", appended, never replaced — e.g. "from: split EXG-005; merged into EXG-010"): — | merged into <ID> | split into <IDs> | variant of <ID>[, <ID>] | from: consolidate <IDs> | from: umbrella <IDs> | from: split <ID>. Note: after a redo "current: <file>@<rev>" (e.g. current: EXG-007-card.v2.md@1). Never delete a row; a merged, split or rejected card keeps its row. -->
 
-| ID | Title | Status | Origin | Evaluation | Note |
-| --- | --- | --- | --- | --- | --- |
-| <code>-001 | <…> | sketch | own idea | — | |
+| ID | Title | Status | Origin | Relation | Evaluation | Note |
+| --- | --- | --- | --- | --- | --- | --- |
+| <code>-001 | <…> | sketch | own idea | — | — | |
 
 **Next ID:** <code>-<nnn>
 

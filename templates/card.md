@@ -1,12 +1,12 @@
 ---
 stage: card
-owner: idea-collect
+owner: idea-collect         # idea-collect | idea-merge (cards produced by consolidate, umbrella or split)
 status: in_progress          # open | in_progress | done | skipped
 revision: 1
 created: <YYYY-MM-DDThh:mm>
 updated: <YYYY-MM-DDThh:mm>
 input: —                     # or import:<file> when the card was mapped from a foreign format
-source: interview            # interview | import:<format, e.g. xlsx-12col> | mixed
+source: interview            # interview | import:<format, e.g. xlsx-12col> | mixed | merge:<IDs> | umbrella:<IDs> | split:<ID>
 ---
 
 # Idea card <ID>: <short, telling name>
@@ -18,7 +18,7 @@ _Result of idea-collect. One card per idea, written in the language set for resu
 - **Department(s):** <own department; both for an interface idea>
 - **Process & systems:** <the affected workflow as it runs today, the systems and artefacts involved>
 - **Cost of the status quo:** <frequency × effort, otherwise quality/frustration> [evidenced|estimated|unknown]
-- **Stakeholders & needs:** <role → need, one per line>
+- **Stakeholders & needs:** <role → need, one per line; on a merge card each line ends with its source: "← <ID>">
 - **Data situation:** <sources, format, quality> [evidenced|estimated|unknown]
 - **Earlier attempts:** <what was tried and why it failed, or "none known"> [evidenced|estimated|unknown]
 - **Personal data:** <yes | no | unclear>
@@ -26,8 +26,17 @@ _Result of idea-collect. One card per idea, written in the language set for resu
 - **Strategy link:** <which company goal the idea supports> [evidenced|estimated|unknown]
 - **Riskiest assumption:** <from the mini pre-mortem: the success criterion most likely to be missed, inverted>
 - **Minimum success criterion:** <what the solution must at least achieve to be used; measurable if possible>
-- **Views:** <only on contradictions: "View A: … / View B: …", anonymised; otherwise omit>
-- **Origin:** <own idea | conversation | AI pattern suggestion | import>
+- **Views:** <only on contradictions: "View A: … / View B: …", anonymised (on a merge card with source IDs: "View A (<ID>): …"); otherwise "—" — the line stays (RULES §4.7)>
+- **Origin:** <own idea | conversation | AI pattern suggestion | import | merge>
+- **Relation:** <— | consolidated from <IDs> | umbrella over <IDs> | split from <ID> (part <n> of <m>)>
+
+## Variants
+
+<!-- Only on an umbrella card (idea-merge). One row per variant card; the variant card stays the full record. Otherwise: "not relevant for this card". -->
+
+| Variant | Title | What differs | Needs only this variant has | Evaluation |
+| --- | --- | --- | --- | --- |
+| <ID> | <…> | <touchpoint, user group, market, channel> | <…, or "—"> | <— | done (index, tendency) | superseded> |
 
 ## Imported, no field in this card
 

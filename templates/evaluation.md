@@ -1,11 +1,11 @@
 ---
 stage: evaluation
 owner: idea-evaluate
-status: in_progress          # open | in_progress | done | skipped
+status: in_progress          # open | in_progress | done | skipped | superseded (source card consumed by idea-merge — set by the Director)
 revision: 1
 created: <YYYY-MM-DDThh:mm>
 updated: <YYYY-MM-DDThh:mm>
-input: cards/<ID>-card.md@<rev>
+input: cards/<ID>-card.md@<rev>        # for a merge card also the superseded evaluations used for prefill: evaluations/<ID>-eval.md@<rev>
 ---
 
 # Evaluation <ID>: <card title>
@@ -18,11 +18,11 @@ _Ten-field evaluation of one idea card, Kriterienkatalog Konzeptbewertung v0.3. 
 - **Card status at evaluation:** <sketch | done>
 - **Result status:** <in_progress | complete | parked>
 
-<!-- Per field: light green|yellow|red (or waiver / unknown), evidence [evidenced|estimated|unknown], origin proposed|confirmed|corrected, one sentence of reasoning, dissent if any. Anchors are given per field for the writer. -->
+<!-- Per field: light green|yellow|red (or waiver / unknown), evidence [evidenced|estimated|unknown], origin proposed|confirmed|corrected|estimated (moderator) — the last one for a K.o. field that was [unknown] and was settled by the committee's estimate, one sentence of reasoning, dissent if any. Anchors are given per field for the writer. -->
 
 ## V1 — Value mechanism & lead KPI
 
-**Light:** <green|yellow|red> · **Evidence:** [evidenced|estimated|unknown] · **Origin:** <proposed|confirmed|corrected>
+**Light:** <green|yellow|red> · **Evidence:** [evidenced|estimated|unknown] · **Origin:** <proposed|confirmed|corrected|estimated (moderator)>
 <the one main lever; lead KPI: current → target; is it measured today?>
 _Reason:_ <one sentence>
 <!-- green: lever clear, KPI measured today, current and target known · yellow: lever clear, KPI plausible but current value estimated or measurement must be built · red: no measurable KPI — value stays "better/faster" without a reference -->
