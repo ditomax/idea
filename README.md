@@ -1,6 +1,6 @@
 # idea
 
-**From "we should do something with AI" to a ranked shortlist — markdown skills, one folder.**
+**From "we should do something with AI" to a ranked shortlist — or, for a project that is already fixed, from every stakeholder's view to one prioritised register. Markdown skills, one folder.**
 
 Version: see `VERSION` · September 2026 · https://github.com/ditomax/idea
 
@@ -25,6 +25,14 @@ idea is the first of three skillsets — **idea → maquette → build** — tha
 | (merge) | consolidator | the collector between sessions, or the committee inside a round — optional | new cards from existing ones: **consolidate** (n → 1), **umbrella** (n → 1, the sources stay as variants), **split** (1 → n); the originals stay untouched and traceable | 15 min per operation |
 | 2 evaluate | committee moderator | a committee, one writer at the keyboard | `evaluations/<ID>-eval.md` per card and `10-shortlist.md` — ranked, with reasons | 30 min per card, 30 min for the shortlist |
 
+**Two tracks.** The table above is the **explore** track — for when the ideas are still to be found. When the customer already knows which problem to solve and wants every stakeholder heard first, the workspace runs the **focus** track instead (chosen once, at the first `start`):
+
+| Stage | "Team member" | Who sits at the table | Result | approx. |
+| --- | --- | --- | --- | --- |
+| 1 focus-collect | interviewer | first the person who sets up the project (frame), then one perspective per session — interview, collector, or a mail return | `05-frame.md` once; `contributions/<code>-S<nn>.md` per session — goals, constraints, requirements, wishes, concerns, questions, unscored | 45 min per session, 8–15 contributions |
+| 2 focus-consolidate | consolidator | the moderator, after the sessions | `20-register-draft.md` — duplicates joined with all sources, contradictions side by side, K.o. candidates flagged; every contribution exactly once | 30 min |
+| 3 focus-review | committee moderator | a committee, one writer | `10-register.md` — the project checked as a whole (V1–V10, K.o. decisions, no index), conflicts decided, every item MUST / SHOULD / COULD | 60 min |
+
 Finished results look like the files in `examples/` — one card, its evaluation and a two-entry shortlist for a fictitious company. A Director skill (`idea`) reads the folder, tells the user where they stand, and calls the stage. The user types `start`, then **next**, **redo** or **stop**.
 
 Collect never judges; evaluate never generates; merge only regroups what people decided belongs together — it never scores and never drops a line. That separation is the method: the interview surfaces pains before technology, the committee assesses concept maturity — never the person, never the idea — with ten fields, K.o. gates and an index anyone can recompute by hand. Where a K.o. field is unknown, the committee estimates or waives; ideas are never sent back and never silently dropped.
@@ -33,7 +41,7 @@ Collect never judges; evaluate never generates; merge only regroups what people 
 
 | Repo | What it does |
 | --- | --- |
-| [idea](https://github.com/ditomax/idea) — this repo | vague wish → ranked shortlist (`10-shortlist.md`, contract H1) |
+| [idea](https://github.com/ditomax/idea) — this repo | vague wish → ranked shortlist (`10-shortlist.md`, contract H1) — or, for a fixed project, every stakeholder's view → prioritised register (`10-register.md`, contract register/1) |
 | [maquette](https://github.com/ditomax/maquette) | one shortlist entry → clickable model and brief (`60-brief.md`, contract H2) |
 | [build](https://github.com/ditomax/build) | brief → product, with concept documents as the source of truth |
 | [skill-suite-setup](https://github.com/ditomax/skill-suite-setup) | puts the three into one project folder (`planning/`) with a profile and a single entry point that knows which skillset is up; builds customer-specific versions |
@@ -43,11 +51,12 @@ Each skillset works on its own. Anyone who wants more than one of them, or a cus
 ## Contracts
 
 - **Out — H1.** `10-shortlist.md` (contract `H1/2`) is read by maquette. The committee names under **Maquette order** which entry is built next and, for an umbrella entry, which variant the demo shows; maquette ≥ 0.6.0 proposes exactly that entry, the user confirms or picks another — always exactly one. maquette 0.4–0.5 reads the file as `H1/1` (lists the entries, ignores the additions). Sparring prefills from the chosen entry instead of asking again. Every entry is self-contained, an umbrella entry including its Variants table.
+- **Out — register/1 (focus).** `10-register.md` is a contract of its own, not a shortlist version: one project, its frame, the project check and outcome, and every item `R-<n>` with its priority. maquette ≥ 0.7.0 and build ≥ 0.2.0 read it and account for every item; older versions start cold, where the file can be pasted.
 - **In — foreign cards.** Ideas that already exist in a spreadsheet or another tool enter through collect's import step, mapped onto cards with the gaps marked `[unknown]`; the mapping is remembered per format.
 
 Both seams are optional. maquette also starts from an idea in prose; idea also works without maquette.
 
-**Compatibility.** Out: `10-shortlist.md` is contract `H1/2` (additive to `H1/1`), fully read by maquette ≥ 0.6.0, readable as `H1/1` by maquette ≥ 0.4.0. In: none (foreign cards enter through collect's import). Version triples tested together are listed in [skill-suite-setup/compat.md](https://github.com/ditomax/skill-suite-setup/blob/main/compat.md). Changes: `CHANGELOG.md`.
+**Compatibility.** Out: `10-shortlist.md` is contract `H1/2` (additive to `H1/1`), fully read by maquette ≥ 0.6.0, readable as `H1/1` by maquette ≥ 0.4.0. `10-register.md` is contract `register/1` (focus track), read by maquette ≥ 0.7.0 and build ≥ 0.2.0. In: none (foreign cards enter through collect's import). Version triples tested together are listed in [skill-suite-setup/compat.md](https://github.com/ditomax/skill-suite-setup/blob/main/compat.md). Changes: `CHANGELOG.md`.
 
 ## Structure
 
@@ -67,15 +76,23 @@ idea/
   examples/            fictitious finished results — a card, an evaluation, a shortlist (Example GmbH)
   ideas/               the users' work, one subfolder per organisation (not in the repo)
   templates/           one template per result file (binding content definition)
-    00-idea.md         control file
+    00-idea.md         control file (explore)
     card.md            idea card
     evaluation.md      ten-field evaluation
     10-shortlist.md    handover to maquette (contract H1/2)
+    00-idea-focus.md   control file (focus)
+    05-frame.md        the fixed project (focus)
+    session.md         contributions of one session (focus)
+    20-register-draft.md  consolidated items (focus)
+    10-register.md     prioritised register — handover (contract register/1)
   skills/
     idea/              Director
     idea-collect/
     idea-merge/        card operations: consolidate, umbrella, split
     idea-evaluate/
+    idea-focus-collect/      focus: frame and contribution sessions
+    idea-focus-consolidate/  focus: register draft
+    idea-focus-review/       focus: project check, priorities, register
 ```
 
 ## Inside a project

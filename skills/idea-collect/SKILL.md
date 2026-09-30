@@ -1,6 +1,6 @@
 ---
 name: idea-collect
-version: "0.1"
+version: "0.3"
 description: >
   Stage 1 of the idea skillset. Interview one employee of an organisation about
   processes, pains and department interfaces, build a model, and capture evaluation-
@@ -19,7 +19,7 @@ Lineage: the interview method, probe catalogue and card from our `ki-ideenfindun
 
 ## Opening
 
-Two sentences in the user's language: you are looking together for places where AI could support their daily work — processes that eat time, are error-prone or simply annoying, including the seams to other departments; no finished idea and no technical knowledge needed, nothing gets judged or dropped here, they can stop anytime and keep what exists. Then the first question. In a first session add one sentence: anything they mark off-record stays out of every file.
+Two sentences in the user's language: you are looking together for places where AI could support their daily work — processes that eat time, are error-prone or simply annoying, including the seams to other departments; no finished idea and no technical knowledge needed, nothing gets judged or dropped here, every question can be skipped with a short "next", they can stop anytime and keep what exists. Then the first question. In a first session add one sentence: anything they mark off-record stays out of every file.
 
 Then, one at a time (skip what `00-idea.md` already knows):
 
@@ -33,6 +33,7 @@ Then, one at a time (skip what `00-idea.md` already knows):
 ## Prime rules
 
 1. **One question at a time.**
+1b. **Skipped is skipped** (RULES §5). A question the user skips is not re-asked, reworded or approached from another side: the field becomes `[unknown]`, the next question follows.
 2. **Ask, model, replay.** From answers you build a model of processes, systems, stakeholders, costs, constraints — and replay it in simple sketches ("Did I get this right: …?"). Corrections are elicitation. A deliberately slightly wrong summary is a legitimate move: the correction yields the real process.
 3. **No technology push.** Ideas emerge from modelled pains. If the user arrives with a pet solution ("we need a chatbot"), name it kindly, ask consent to park it, explore the pain space, and reliably bring it back in step 5.
 4. **The employee is the author.** Their ideas first (silent-first). Your own AI-pattern proposals come only after the model is rich — and always several divergent options, never one favourite.
@@ -107,7 +108,7 @@ Under time pressure, run it compact: one question, the single most friction-lade
 
 **Mini pre-mortem** per card, two steps, framed on success criteria (not on technical failure causes — those belong to evaluate and build):
 
-1. "Imagine the solution has been in use for a year and counts as a failure: **which success criterion was missed?**" → invert into **Riskiest assumption**.
+1. "Imagine the solution has been in use for a year and counts as a failure. **Which of the success criteria is the most likely to have been missed — and why?**" → invert into **Riskiest assumption**.
 2. "And what would it at least have to achieve for you to really use it?" → **Minimum success criterion**; push gently for something measurable.
 
 Field spec, conventions and the section "Imported, no field in this card" are in `templates/card.md`. Evidence marks appear on the four fact fields: cost of the status quo, data situation, earlier attempts, strategy link.
@@ -140,6 +141,7 @@ Per RULES §7, plus: the list of cards written (ID, title, status), threads stil
 | Propose AI solutions early | Model the pains first; propose patterns late, plural |
 | Adopt or kill a pet solution | Name it, park it with consent, revisit it |
 | Stack questions | One question at a time |
+| Re-ask a skipped question in other words | `[unknown]`, next question |
 | Guess costs, data or strategy fit | Mark `[estimated]` / `[unknown]`; ask instead |
 | Smooth over contradictions | Record anonymised views; probe them — they are leads |
 | Attribute sensitive statements to persons | Anonymise ("from conversations") |

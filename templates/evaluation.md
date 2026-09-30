@@ -58,9 +58,9 @@ _Reason:_ <one sentence>
 ## V6 — Effort class & operation · K.o.
 
 **Light:** <green|yellow|red | estimate: … | waiver: … | unknown> · **Evidence:** <…> · **Origin:** <…>
-<effort class for the build; who operates it permanently — name and time share>
+<effort class for the build; operating model: internal (which role) · service provider · unclear — no names or time shares here, build intake asks them>
 _Reason:_ <one sentence>
-<!-- green: class plausible and within frame; operator named with a time share · yellow: class uncertain, or operation only informal ("IT will handle it" is yellow at best) · red: nobody operates it permanently → K.o. -->
+<!-- green: class plausible and within frame; a plausible operating model (internal role or kind of service provider) · yellow: class uncertain, or operating model unclear · red: nobody could operate it permanently, neither internally nor through a provider → K.o. Asking for names and time shares here is too early — build intake does that. -->
 
 ## V7 — Damage class & verifiability · two lights
 

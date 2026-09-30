@@ -32,6 +32,8 @@ Type **start** — or simply describe your department in two sentences. If ideas
 | (between) | Consolidator | Optional: cards that belong together become one card, one card with two ideas becomes two — say "merge" or "split"; the originals are kept | 15 min |
 | 2 | Committee moderator | Each card assessed in ten fields, and a ranked shortlist with reasons | 30 min per card |
 
+**The project is already fixed?** Say so after "start" — for example "we know what we want to build, we want to hear everyone first". Then the stations are different: first the project is described once, then each perspective (a person, a role, or a returned mail) contributes what the product must achieve, respect and never do; the AI joins everything into one list — duplicates together, contradictions side by side, nothing lost — and a committee checks the project, decides the contradictions and marks what is a must. The result is one prioritised register instead of a shortlist.
+
 Station 1 is for one person at a time — you alone, or you as the one who talks to colleagues and reports back. Station 2 is for a group: one of you types, the group discusses and decides.
 
 You can stop at any time. Whatever exists by then stays in the `ideas/` folder and continues next time with **next**.

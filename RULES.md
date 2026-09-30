@@ -1,15 +1,20 @@
 # idea — Shared Rules for All Stage Skills
 
-**Version 2** (idea 0.2.0: card operations, H1/2). Every stage skill reads this file before doing anything. The Director (`idea`) enforces it. If a stage skill and this file disagree, this file wins. The rules are the same core as maquette's `RULES.md` v2 — one suite, one discipline.
+**Version 3** (idea 0.3.0: focus track, contract register/1; version 2 — idea 0.2.0: card operations, H1/2). Every stage skill reads this file before doing anything. The Director (`idea`) enforces it. If a stage skill and this file disagree, this file wins. The rules are the same core as maquette's `RULES.md` v2 — one suite, one discipline.
 
 ## 1. Vocabulary
 
 - **Idea workspace** — one folder holding everything the idea skillset produces for one organisation or department: the control file, the cards, the evaluations, the shortlist.
-- **Stage** — one of: collect → (merge) → evaluate. Collect produces cards, merge produces cards from cards, evaluate produces evaluations and the shortlist. Merge is optional and may also run in the middle of an evaluate round.
+- **Track** — how a workspace works, set once in `00-idea.md`: **explore** (look for ideas; cards → shortlist) or **focus** (the project is fixed; contributions → register). One workspace, one track.
+- **Stage** — explore: collect → (merge) → evaluate; focus: focus-collect → focus-consolidate → focus-review. Collect produces cards, merge produces cards from cards, evaluate produces evaluations and the shortlist. Merge is optional and may also run in the middle of an evaluate round.
 - **Card** — one idea, one file: `cards/<ID>-card.md`. Written by idea-collect, or by idea-merge for a card produced from other cards.
 - **Card operation** — idea-merge's work: **consolidate** (n cards → 1, sources consumed), **umbrella** (n cards → 1 umbrella card, sources stay active as its **variants**), **split** (1 card → n, source consumed). A **consumed** card keeps its file and ID; its evaluation becomes `superseded`.
 - **Evaluation** — the ten-field assessment of one card: `evaluations/<ID>-eval.md`. Written by idea-evaluate.
 - **Shortlist** — `10-shortlist.md`, the ranked handover to maquette (contract H1). Written by idea-evaluate.
+- **Frame** (focus) — `05-frame.md`, the one fixed project: problem, goal, scope, known context, perspectives. Written by idea-focus-collect in the first session.
+- **Contribution** (focus) — one statement from one perspective about the project: goal, constraint, requirement, wish, concern, question or out-of-scope. ID `<code>-C<nnn>`. Contributions of one interview or one mail return live in one **session file** `contributions/<code>-S<nn>.md`, written by idea-focus-collect.
+- **Register draft** (focus) — `20-register-draft.md`: all contributions consolidated into items `R-<n>`, conflicts shown, nothing decided. Written by idea-focus-consolidate.
+- **Register** (focus) — `10-register.md`, the handover of the focus track (contract `register/1`): project check, K.o. decisions, outcome, every item with its priority MUST / SHOULD / COULD. Written by idea-focus-review.
 - **Director** — the `idea` skill. Reads the workspace, tells the user where they are, calls the stage skill, keeps `00-idea.md` true.
 - **Profile** — an optional `profile/` folder with customer-specific constraints (see §8).
 - **Human notes** — the section `## Notes (human)` at the end of every result file.
@@ -36,13 +41,24 @@ The project layout is recognised by a `planning/` folder above `<suite>`. In the
   10-shortlist.md            idea-evaluate   ranked handover to maquette (contract H1/2)
 ```
 
+A focus workspace (`track: focus`) holds instead:
+
+```
+<work>/
+  00-idea.md                       Director                 control: track focus, sessions, contribution counter, imports
+  05-frame.md                      idea-focus-collect       the fixed project
+  contributions/<code>-S<nn>.md    idea-focus-collect       one file per session or mail return
+  20-register-draft.md             idea-focus-consolidate   items R-<n>, conflicts, K.o. candidates, coverage
+  10-register.md                   idea-focus-review        project check + prioritised register (contract register/1)
+```
+
 ## 3. Frontmatter
 
 Every result file starts with:
 
 ```yaml
 ---
-stage: <control|card|evaluation|shortlist>
+stage: <control|card|evaluation|shortlist|frame|session|register-draft|register>
 owner: <skill name>
 status: <open|in_progress|done|skipped>
 revision: <integer, starts at 1>
@@ -54,23 +70,24 @@ input: <file>@<revision>[, <file>@<revision>]
 
 Paths in `input` are relative to `<work>` (`cards/EXG-003-card.md@3`, `evaluations/EXG-007-eval.md@1`), never from the project root.
 
-`00-idea.md` additionally carries `org`, `code`, `language`, `git`, `profile` and the session log. Stage skills read those; only the Director writes them. `card.md` adds `source`; `10-shortlist.md` adds `contract`. A template may add stage-specific fields — copied from `00-idea.md` or defined in the template, never invented.
+`00-idea.md` additionally carries `track`, `org`, `code`, `language`, `git`, `profile` and the session log. Stage skills read those; only the Director writes them. `card.md` and `session.md` add `source`; `10-shortlist.md` adds `contract`; `10-register.md` adds `contract`, `track`, `outcome`, `next`. A template may add stage-specific fields — copied from `00-idea.md` or defined in the template, never invented.
 
 ## 4. Write rules
 
 1. **One owner per file.** Write only files whose `owner` is your skill name. Read anything. If you believe another file is wrong, say so to the user and record it under "Open questions" in *your* file.
 2. **Done is frozen.** Never modify a file whose `status` is `done`. A rerun ("redo") writes `<name>.v2.md` (then `.v3.md` …) with `revision: 1` in the new file. The Director records which version is current in `00-idea.md`. Exception: a card with status `sketch` is not done — collect may complete it in a later session (revision + 1).
-3. **Findings flow forward, never backward.** What evaluate learns about a card goes into the evaluation, not into the card. Only the shortlist consolidates — and idea-merge, which writes *new* cards from existing ones and never touches the sources.
+3. **Findings flow forward, never backward.** What evaluate learns about a card goes into the evaluation, not into the card. Only the shortlist consolidates — and idea-merge, which writes *new* cards from existing ones and never touches the sources. In focus: session files are never edited by consolidate or review; the draft and the register cite them.
 4. **Optimistic locking.** Before writing: read the file, note `revision`. When writing: set `revision + 1` and `updated`. If the file's `revision` on disk is no longer what you read, do not overwrite — write `<name>.conflict.md` with your content and tell the user in one sentence.
 5. **Human notes are untouchable.** When rewriting a file, copy `## Notes (human)` verbatim from the existing file. Never edit, reorder, summarise or delete it. If the human wrote something there that changes your work, treat it as user input — act on it in your sections, leave theirs alone.
 6. **Cite your input.** `input` names the file(s) and revision(s) you read. If the Director marks your file `stale` (the input changed), you do nothing until the user says "redo".
 7. **Templates are the definition.** Fill the template from `templates/`. Keep every section heading, in order. A section that does not apply gets the line "not relevant for this idea" — never delete it. Remove the `<!-- -->` guidance comments and the `<…>` placeholders in the finished file.
-8. **Nothing disappears.** An idea that is merged, split, parked or rejected keeps its ID, its file and a recorded reason. IDs are never reused. Card relations (merged into, split into, variant of, from) are recorded in the card index of `00-idea.md` by the Director and in the new card's Relation line.
-9. **Relations propagate staleness.** A source card with a newer revision than a merge card cites → the merge card is `stale`, then its evaluation, then the shortlist. A variant consumed by a later operation → its umbrella is `stale`. The Director checks this at every `start`/`next` (also mid-conversation) and before every stage, and writes `stale` into the index before asking anything. Relations in the index are appended, never replaced.
+8. **Nothing disappears.** An idea that is merged, split, parked or rejected keeps its ID, its file and a recorded reason. IDs are never reused. In focus, every contribution appears exactly once in the draft and the register — as a source of an item, or under Out of scope with a reason; item numbers `R-<n>` are never changed or reused. Card relations (merged into, split into, variant of, from) are recorded in the card index of `00-idea.md` by the Director and in the new card's Relation line.
+9. **Relations propagate staleness.** A source card with a newer revision than a merge card cites → the merge card is `stale`, then its evaluation, then the shortlist. A variant consumed by a later operation → its umbrella is `stale`. The Director checks this at every `start`/`next` (also mid-conversation) and before every stage, and writes `stale` into the index before asking anything. Relations in the index are appended, never replaced. In focus: a session `done` after the draft (or newer than the draft cites), or a newer frame → the draft is `stale`, then the register.
 
 ## 5. Conversation rules
 
 - **One question at a time.** Never stack questions.
+- **Every question may be skipped.** Say so when a stage opens. A skipped question is not re-asked or reworded; its field becomes `[unknown]` (or "—"), and the skip is noted. Gate and safety questions ("good as it is?", approvals, stop) are the exception — they wait for an answer.
 - **Language.** Skill text is English. Talk to the user in the language they use (German: informal "du"). Result files are written in the language set in `00-idea.md` (`language`), resolved by the Director: English by default → profile → the language the user writes in → an explicit statement by the user. Template headings and frontmatter values stay English regardless.
 - **Opening line.** Each stage starts with two sentences: what this stage produces and roughly how long it takes. No lecture.
 - **Evidence marks.** Facts the user gives are tagged `[evidenced]` (in a document), `[estimated]` (from conversation) or `[unknown]`. Never fill a gap with your own guess; `[unknown]` is a valid answer.
@@ -81,7 +98,7 @@ Paths in `input` are relative to `<work>` (`cards/EXG-003-card.md@3`, `evaluatio
 - **Off the record.** Anything the user marks off-record stays out of every file unless they promote it. Never promise that the platform keeps no logs.
 - **Stop anytime.** On "stop", "enough", "that's it for today": write the file with whatever exists, mark unfinished sections "open", set `status: in_progress`, hand back to the Director. Never argue for continuing. Two sketches are a valid result.
 - **Time budget.** `budget_min` in `00-idea.md` gives your minutes per session. When you reach it, say so and offer to close with the current state. Do not silently run over.
-- **Inline first, file last.** Show interim results as formatted text in the chat. Write result files at the end of the stage (or on stop) — not continuously. Cards are the exception: write each card when it is first captured, so nothing is lost on an abrupt stop.
+- **Inline first, file last.** Show interim results as formatted text in the chat. Write result files at the end of the stage (or on stop) — not continuously. Cards and session files are the exception: write each when it is first captured, so nothing is lost on an abrupt stop.
 - **No hidden actions.** Say what you are about to write or run before you do it.
 
 ## 6. Git
@@ -97,6 +114,10 @@ With `git: yes`, a commit marks a **frozen state, never progress**:
 | an evaluation reaches `status: done` | that evaluation | `idea(<code>): eval <ID> done` |
 | the shortlist reaches `status: done` | `10-shortlist.md` + `00-idea.md` | `idea(<code>): shortlist done` |
 | a session ends with sketches only | the sketches + `00-idea.md` | `idea(<code>): session <date> — <n> sketches` |
+| focus: the frame reaches `done` | `05-frame.md` + `00-idea.md` | `idea(<code>): frame done` |
+| focus: a session file reaches `done` | that file + `00-idea.md` | `idea(<code>): session <code>-S<nn> done` |
+| focus: the register draft reaches `done` | `20-register-draft.md` + `00-idea.md` | `idea(<code>): register draft done` |
+| focus: the register reaches `done` | `10-register.md` + `00-idea.md` | `idea(<code>): register done` |
 
 Skills never push, rebase or branch. Whether `planning/` is committed at all is the project's decision.
 
@@ -107,6 +128,8 @@ At the end of a stage, the stage skill reports in one short block: files written
 ## 8. Profile
 
 A workspace may contain a `profile/` folder with customer-specific constraints. **The profile format is owned by the setup skill** (skill-suite-setup, design §5); this skillset only reads it. The Director reads `profile/profile.md` at every start and passes the files it names to the stages. **A profile may restrict, never loosen:** write rules, git behaviour and "nothing outside the workspace" stay as defined here. An absent or empty `profile/` means core defaults.
+
+`profile.md` may fix the track with a line `Track: explore` or `Track: focus`; the Director then does not ask D5.
 
 Files this skillset reads: `profile.md`, `questions.md`, `scope.md` (departments, topic limits, company goals → Strategy link), `standards.md` (norms with contacts for V8, effort classes for V6), `import-formats.md` (the customer's own card formats for collect's import mode).
 
@@ -120,4 +143,5 @@ The Director passes the rows of the coming stage to the stage skill together wit
 ## 9. Contracts
 
 - **H1 — out.** `10-shortlist.md` (contract `H1/2`) is the handover to maquette. H1/2 adds to H1/1: the section **Maquette order** with `next_maquette` in the frontmatter (the committee's instruction which entry is built next, and for an umbrella which variant the demo shows), the **Relation** line and the **Variants** table per entry. A reader of H1/1 ignores the additions. Every entry is self-contained: card verbatim, evaluation, handover block. maquette ≥ 0.6.0 proposes the entry named under Maquette order and lets the user confirm or pick another — always exactly one; maquette 0.4–0.5 lists the entries and lets the user pick. Either way sparring prefills from the chosen entry. After `done`, the shortlist is not edited — a new committee round writes `10-shortlist.v2.md`.
+- **register/1 — out (focus).** `10-register.md` (`contract: register/1`, `track: focus`) is the handover of the focus track to maquette or build (`next:`). It is a contract of its own, not a version of the shortlist: no ranking, no entries — one project with its frame, the project check, the K.o. decisions and outcome, and every item `R-<n>` with its priority. Receivers cite the item numbers (maquette: coverage per item; build: trace `R-<n>` → feature requirement) and never drop an item silently. Read by maquette ≥ 0.7.0 and build ≥ 0.2.0; older versions do not look for it and start cold, where the user can paste the file. After `done` the register is not edited — a new round writes `10-register.v2.md`.
 - **Foreign cards — in.** Ideas that arrive in another format (a spreadsheet, a list, another tool's export) enter through idea-collect's import step, which maps them onto `cards/` and marks what the format could not answer `[unknown]`. The mapping used is recorded in `00-idea.md` so the next import of the same format needs no questions.

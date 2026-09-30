@@ -62,7 +62,7 @@ Guiding questions and anchors are reproduced in `templates/evaluation.md` next t
 | V3 Data situation & preparation effort · **K.o.** | Which data does the solution need — does it exist, digital, accessible, current? preparation: little, medium, much? whose time? | feasibility |
 | V4 Solution pattern & maturity | What kind of AI solution — knowledge assistant, read-and-check, draft generation, classify-and-route, forecast, translate, other? products on the market? references? | feasibility |
 | V5 System character & learning loop | A fixed process where AI does one step (A), a curated system that needs upkeep (B), or a system that learns from operation (C)? who maintains it? could it be one class simpler? | feasibility |
-| V6 Effort class & operation · **K.o.** | Which effort class for the build — and who operates it permanently, with a name and a time share? | feasibility |
+| V6 Effort class & operation · **K.o.** | Which effort class for the build — and which operating model is plausible: internal, a service provider, or unclear? Names and time shares are not asked here — build intake asks them | feasibility |
 | V7 Damage class & verifiability · **two lights** | If the AI is wrong once and nobody notices — worst case? and can one tell right from wrong, how fast? | risk (damage) · feasibility (verifiability) |
 | V8 Legal screening · **K.o.** | Personal data? certifications or norms touched? works council? may data leave the house? — name a contact person for anything yellow; never assess legality yourself | risk |
 | V9 Ownership, strategy & adoption · **K.o.** | Who owns the process and stands behind the idea? do future users want it? which company goal? who loses something? | value |

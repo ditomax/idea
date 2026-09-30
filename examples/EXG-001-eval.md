@@ -52,8 +52,8 @@ _Reason:_ Type A with a named maintenance role; a learning system is not needed 
 ## V6 — Effort class & operation · K.o.
 
 **Light:** green · **Evidence:** [estimated] · **Origin:** confirmed
-Build ~30k € (class 10–50k). Operation: sales operations coordinator ~10 % for content; IT ~2 h/month for the interface.
-_Reason:_ Class plausible and within frame; operators named with time shares.
+Build ~30k € (class 10–50k). Operating model: internal — sales operations keeps the content, IT runs the interface.
+_Reason:_ Class plausible and within frame; operating model plausible (names and time shares follow in build intake).
 
 ## V7 — Damage class & verifiability · two lights
 

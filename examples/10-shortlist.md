@@ -197,7 +197,7 @@ not relevant for this entry
 - **Open before or during the maquette:**
   - Head of Service as owner and sponsor (V9)
   - Separate service e-mail address as non-AI alternative (V10)
-  - Operator with a time share (V6)
+  - Operator names and time shares (V6 operating model internal — asked in build intake)
   - Service goal document not seen (Strategy link)
   - Views A/B: share of unclear e-mails — count one week of mail
 
