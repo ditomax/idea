@@ -58,9 +58,9 @@ _Reason:_ <one sentence>
 ## V6 — Effort class & operation · K.o.
 
 **Light:** <green|yellow|red | estimate: … | waiver: … | unknown> · **Evidence:** <…> · **Origin:** <…>
-<effort class for the build; operating model: internal (which role) · service provider · unclear — no names or time shares here, build intake asks them>
+<effort class for the build; operating model: internal (which role) · service provider · unclear — no names or time shares here, build intake asks them; running cost: fixed · grows with use (driver, rough cost per use against value per use) · unclear>
 _Reason:_ <one sentence>
-<!-- green: class plausible and within frame; a plausible operating model (internal role or kind of service provider) · yellow: class uncertain, or operating model unclear · red: nobody could operate it permanently, neither internally nor through a provider → K.o. Asking for names and time shares here is too early — build intake does that. -->
+<!-- green: class plausible and within frame; a plausible operating model (internal role or kind of service provider); running cost fixed, or growing with use and clearly below the value per use · yellow: class uncertain, the class does not fit the card's Users & scale (e.g. external, 24×7 in the smallest class), operating model unclear, or running cost grows with use and nobody has compared it with the value per use · red: nobody could operate it permanently, neither internally nor through a provider; or running cost per use visibly above the value per use with no lever (smaller model, caching, cap, price) → K.o. Asking for names, time shares or cost figures here is too early — build intake does that (I7, I8). -->
 
 ## V7 — Damage class & verifiability · two lights
 

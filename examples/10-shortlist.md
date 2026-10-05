@@ -56,6 +56,7 @@ _Result of idea-evaluate and **contract H1** to maquette. Each entry is self-con
 - **Earlier attempts:** A Word template with merge fields, dropped after a few months three years ago — configurations vary too much. [estimated]
 - **Personal data:** yes (customer contact data from the CRM)
 - **Legal / ethics / standards:** none known; offers are binding once sent
+- **Users & scale:** internal team — about 12 sales engineers; stable, month-end peak; office hours, one day of outage tolerable; depends on the CRM and the AI model provider [estimated]
 - **Strategy link:** Company goal 2026 "answer every qualified inquiry with an offer within 48 hours". [evidenced]
 - **Riskiest assumption:** The CRM export contains every field an offer needs.
 - **Minimum success criterion:** 8 of 10 standard offers finished from the draft in ≤ 30 minutes.
@@ -137,6 +138,7 @@ not relevant for this entry
 - **Earlier attempts:** Keyword mail rules, switched off after misrouting sales inquiries. [estimated]
 - **Personal data:** yes (customer contact data in e-mails)
 - **Legal / ethics / standards:** none known
+- **Users & scale:** internal — the service desk, about 8 people; peaks after product releases; office hours; depends on the shared mailbox and the ticket system [estimated]
 - **Strategy link:** Service goal "first response within one working day" (document not seen). [estimated]
 - **Riskiest assumption:** The right service group can be read from the e-mail text alone.
 - **Minimum success criterion:** 9 of 10 service e-mails reach the right group without a human touch.

@@ -47,6 +47,7 @@ Then, one at a time:
 | Personal data, Legal / ethics / standards | V8 |
 | Strategy link, Stakeholders & needs | V9 |
 | Riskiest assumption, Earlier attempts | V10 |
+| Users & scale | V6 (does the effort class fit the audience, peaks and availability?), V7 (external users widen the damage) |
 | section "Imported, no field in this card" | V4, V6 hints |
 | Relation `consolidated from` / `split from` → the sources' superseded evaluations | a light **only where all sources agree**; where they differ, ask afresh and write the differing lights into the field's note ("sources: <ID> yellow, <ID> green"); cite the evaluations in `input` |
 | Umbrella card → the variants' evaluations, if any | hints only — the umbrella is evaluated as the shared solution; the Variants table stays on the card |
@@ -62,7 +63,7 @@ Guiding questions and anchors are reproduced in `templates/evaluation.md` next t
 | V3 Data situation & preparation effort · **K.o.** | Which data does the solution need — does it exist, digital, accessible, current? preparation: little, medium, much? whose time? | feasibility |
 | V4 Solution pattern & maturity | What kind of AI solution — knowledge assistant, read-and-check, draft generation, classify-and-route, forecast, translate, other? products on the market? references? | feasibility |
 | V5 System character & learning loop | A fixed process where AI does one step (A), a curated system that needs upkeep (B), or a system that learns from operation (C)? who maintains it? could it be one class simpler? | feasibility |
-| V6 Effort class & operation · **K.o.** | Which effort class for the build — and which operating model is plausible: internal, a service provider, or unclear? Names and time shares are not asked here — build intake asks them | feasibility |
+| V6 Effort class & operation · **K.o.** | Which effort class for the build — and which operating model is plausible: internal, a service provider, or unclear? Does running cost grow with use (AI calls, documents, compute) — roughly what per use, against the value per use? Names, time shares and cost figures are not asked here — build intake asks them | feasibility |
 | V7 Damage class & verifiability · **two lights** | If the AI is wrong once and nobody notices — worst case? and can one tell right from wrong, how fast? | risk (damage) · feasibility (verifiability) |
 | V8 Legal screening · **K.o.** | Personal data? certifications or norms touched? works council? may data leave the house? — name a contact person for anything yellow; never assess legality yourself | risk |
 | V9 Ownership, strategy & adoption · **K.o.** | Who owns the process and stands behind the idea? do future users want it? which company goal? who loses something? | value |

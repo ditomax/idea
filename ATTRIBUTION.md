@@ -10,3 +10,7 @@ idea is built from our own earlier skills. No third-party code or prompt materia
 | all | `maquette` RULES v2 (Dietmar Millinger, 2026) | folder-is-the-state, frontmatter, write rules, optimistic locking, human notes, git policy, contracts |
 
 Generic facilitation techniques named in the toolkit (SCAMPER, six thinking hats, miracle question, circular questions, silent-first brainstorming) are common method knowledge and not attributed to a single source.
+
+## AI tools used in development
+
+idea was written and revised with the help of AI assistants: **Claude Opus** (Anthropic) and **GPT-6 Astra** (OpenAI). They drafted and edited texts and were used in field tests. The method, every decision and the review of every change are Dietmar Millinger's.

@@ -36,7 +36,7 @@ Propose **all ten lights at once** in one table: field · light · the items it 
 | V3 Data · **K.o.** | Does the data exist, digital, accessible, current? preparation? | exists, little preparation · scattered or access open · does not exist or unobtainable |
 | V4 Solution pattern & maturity | Known pattern, products, references? | standard · bespoke fit · state of research |
 | V5 System character & upkeep | Fixed step (A), curated (B), learning (C)? who maintains? | A or justified B/C with a role · upkeep unsettled · no upkeep imaginable |
-| V6 Effort & operation · **K.o.** | Effort class, and a plausible operating model (internal, provider, unclear)? | plausible · unclear · nobody could operate it |
+| V6 Effort & operation · **K.o.** | Effort class (does it fit the frame's Users and scale?), a plausible operating model (internal, provider, unclear) — and does running cost grow with use, below the value per use? | plausible, running cost fixed or covered · unclear, or running cost not compared with value · nobody could operate it, or cost per use above value per use |
 | V7 Damage / verifiability | Worst case of an unnoticed error? can right be told from wrong? | internal / objective · outward / partly subjective · harm to persons, safety, assets / no check possible |
 | V8 Legal · **K.o.** | Personal or health data, norms, certification, co-determination, data leaving the house? — name a contact for anything yellow | uncritical · present, resolvable with a contact · visible blocker |
 | V9 Ownership & adoption · **K.o.** | Who owns it, do the users want it, who loses something? | owner behind it, users want it · sponsor unclear or users sceptical · no owner or users reject it |

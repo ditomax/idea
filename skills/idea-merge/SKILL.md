@@ -59,14 +59,14 @@ If the user says "just do it", still show the complete card once before writing;
    - **Stakeholders & needs** → union, one line per need, each line ending with its source (`← <ID>`); duplicates merged into one line with both sources;
    - **Cost of the status quo, Data situation, Earlier attempts, Strategy link** → keep the value with the strongest evidence mark; if the sources differ in substance, ask (M4);
    - **conflicting values (M4)** → collected for the conflict table of the read-back gate; the user decides "take one, or keep both as views?" — kept views go into **Views** as `View A (<ID>): … / View B (<ID>): …`, never smoothed;
-   - **Personal data** → the strictest value of all sources (yes > unclear > no); **Legal / ethics / standards** → union.
+   - **Personal data** → the strictest value of all sources (yes > unclear > no); **Legal / ethics / standards** → union; **Users & scale** → the widest value (external / public > company-wide > internal team; the higher peaks and availability; union of dependencies).
 3. **Pre-mortem (M5).** Riskiest assumption and minimum success criterion must hold for the merged idea: propose from the sources, ask the user to state the common one. The source versions that differ go into Views.
 4. Read-back gate, then write the card: `source: merge:<ID>,<ID>…`, `input:` every source card with its revision (paths relative to the work folder: `cards/<ID>-card.md@<rev>`), **Relation:** `consolidated from <IDs>`, **Origin:** `merge`, section **Variants**: "not relevant for this card". Status `done` (evaluation-ready) if every field is addressed, else `sketch` — a merge card is completed by a merge redo (`.v2`), never by collect.
 
 ## umbrella
 
 1. **Title and opportunity (M3)** of the shared solution — what all variants have in common.
-2. **Common fields.** Fill the card with what holds for **all** variants: the shared process core, the union of stakeholder needs (with `← <ID>`), the shared data basis, the strictest personal-data value, the union of legal constraints. Where variants contradict each other, record **Views** with their IDs (M4).
+2. **Common fields.** Fill the card with what holds for **all** variants: the shared process core, the union of stakeholder needs (with `← <ID>`), the shared data basis, the strictest personal-data value, the union of legal constraints, the widest Users & scale. Where variants contradict each other, record **Views** with their IDs (M4).
 3. **Variants (M6).** One row per source card in the section **Variants**: ID · title · what differs (touchpoint, user group, market, channel) · needs only this variant has · its evaluation state. Keep it short — the source card stays the full record. Propose the table and ask the user what distinguishes the variants — never fill it silently.
 4. **Pre-mortem (M5)** for the shared solution: the success criterion the umbrella as a whole must meet.
 5. Read-back gate, then write the card: `source: umbrella:<IDs>`, `input:` every source card with its revision, **Relation:** `umbrella over <IDs>`, **Origin:** `merge`.

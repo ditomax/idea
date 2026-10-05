@@ -68,6 +68,7 @@ Pick what fits, don't run all mechanically:
 - **Earlier attempts** — was this tried? why did it fail?
 - **Cost of the problem** — time, money, quality, frustration; quantify as frequency × effort where possible ("3×/week, ~2 h each").
 - **Legal & ethics** — personal data, works council, ethical limits.
+- **Users & scale** — who would use the solution (internal team, company-wide, external / public), roughly how many, when the peaks come, office hours or 24×7, which systems or providers it would depend on. Cheap to ask now, expensive to discover in build.
 - **Norms & standards** — which regulations apply?
 
 Mark every fact-type value `[evidenced]`, `[estimated]` or `[unknown]` — never fill gaps with your own guesses.

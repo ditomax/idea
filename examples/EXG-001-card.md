@@ -28,6 +28,7 @@ _Result of idea-collect. One card per idea, written in the language set for resu
 - **Earlier attempts:** A Word template with merge fields, dropped after a few months three years ago — configurations vary too much. [estimated]
 - **Personal data:** yes (customer contact data from the CRM)
 - **Legal / ethics / standards:** none known; offers are binding once sent
+- **Users & scale:** internal team — about 12 sales engineers; stable, month-end peak; office hours, one day of outage tolerable; depends on the CRM and the AI model provider [estimated]
 - **Strategy link:** Company goal 2026 "answer every qualified inquiry with an offer within 48 hours". [evidenced]
 - **Riskiest assumption:** The CRM export contains every field an offer needs.
 - **Minimum success criterion:** 8 of 10 standard offers finished from the draft in ≤ 30 minutes.

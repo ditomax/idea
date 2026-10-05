@@ -41,6 +41,7 @@ Run it when `05-frame.md` does not exist or is not `done`. Prefill everything th
 - **FF4 Known context:** read the known facts back as a list — anything wrong or missing?
 - **FF5 Solution pattern:** is the kind of solution already fixed (e.g. read and check documents)? If not: "open".
 - **FF6 Perspectives:** whose view do we need — which roles, with a 2–4 letter code each? (propose from the profile)
+- **FF8 Users and scale:** who will use it — internal team, company-wide, or external / public — and roughly how many? Peaks, office hours or 24×7, critical systems or providers? (asked right after FF3)
 - **FF7 Touchpoints:** does the product run differently at different places, channels or for different user groups? (optional)
 
 Show the complete frame inline, ask "Good as it is?", then write `05-frame.md` and hand back with `done` proposed — the Director freezes it. If the user who sets up the frame is also the first interviewee, continue with Job B in the same run.
@@ -83,7 +84,7 @@ One returned file = one session file, `source: import:<format>`, `input: 05-fram
 | Format | Recognised by | Mapping |
 | --- | --- | --- |
 | `md-contributions` | the output of the focus prompt file (`### <ID> — <type>` blocks) | 1:1, new IDs |
-| `md-card` | idea cards from the explore prompt file (Opportunity, Stakeholders & needs …) | Opportunity → goal · Stakeholders & needs → one requirement or wish per need (perspective from the role) · Legal / ethics / standards, Personal data "yes" → constraint · Riskiest assumption → concern · Minimum success criterion → goal with Measure · Views → one contribution per view · Cost of the status quo → concern with Measure · everything else → "Imported, no field" |
+| `md-card` | idea cards from the explore prompt file (Opportunity, Stakeholders & needs …) | Opportunity → goal · Stakeholders & needs → one requirement or wish per need (perspective from the role) · Legal / ethics / standards, Personal data "yes" → constraint · Users & scale → constraint · Riskiest assumption → concern · Minimum success criterion → goal with Measure · Views → one contribution per view · Cost of the status quo → concern with Measure · everything else → "Imported, no field" |
 | other (list, table, minutes) | anything else | propose a mapping in one table, the user corrects once; record it in the hand-back for `00-idea.md` "Imports" |
 
 4. **Evidence.** A cited web page or document the person did not attach becomes `[estimated]` with the source named in Rationale ("source given: …"); never open links.

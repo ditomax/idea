@@ -26,6 +26,12 @@ _Result of idea-focus-collect, first session. The one fixed project every contri
 - **In:** <what the project covers>
 - **Out:** <what it deliberately does not cover>
 
+## Users and scale
+
+<!-- FF8. Who will use it (internal team | company-wide | external / public), roughly how many; peaks; office hours or 24×7, tolerable outage; critical systems or providers. -->
+
+<…> [evidenced|estimated|unknown]
+
 ## Known context
 
 <!-- Facts already established (profile scope.md "Known context", documents, earlier meetings). Only confirmed in the interview, never re-asked. One line each, with evidence mark and source. -->

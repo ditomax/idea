@@ -23,6 +23,7 @@ _Result of idea-collect. One card per idea, written in the language set for resu
 - **Earlier attempts:** <what was tried and why it failed, or "none known"> [evidenced|estimated|unknown]
 - **Personal data:** <yes | no | unclear>
 - **Legal / ethics / standards:** <constraints, or "none known">
+- **Users & scale:** <who would use it: internal team | company-wide | external / public — roughly how many; peaks: stable | seasonal | campaign | strong growth; availability: office hours | 24×7, tolerable outage; critical dependencies: systems, AI provider> [evidenced|estimated|unknown]
 - **Strategy link:** <which company goal the idea supports> [evidenced|estimated|unknown]
 - **Riskiest assumption:** <from the mini pre-mortem: the success criterion most likely to be missed, inverted>
 - **Minimum success criterion:** <what the solution must at least achieve to be used; measurable if possible>

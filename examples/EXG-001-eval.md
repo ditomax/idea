@@ -52,7 +52,7 @@ _Reason:_ Type A with a named maintenance role; a learning system is not needed 
 ## V6 — Effort class & operation · K.o.
 
 **Light:** green · **Evidence:** [estimated] · **Origin:** confirmed
-Build ~30k € (class 10–50k). Operating model: internal — sales operations keeps the content, IT runs the interface.
+Build ~30k € (class 10–50k). Operating model: internal — sales operations keeps the content, IT runs the interface. Running cost: grows with use (one model call per draft, well under 1 € per draft against ~2 h saved).
 _Reason:_ Class plausible and within frame; operating model plausible (names and time shares follow in build intake).
 
 ## V7 — Damage class & verifiability · two lights

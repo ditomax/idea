@@ -1,6 +1,6 @@
 # idea — Every question the skillset asks a human
 
-**Version 3 (idea 0.3.0).** One row per question, in the order it is asked. **The IDs are stable identifiers** — `profile/questions.md` (setup skill) refers to them; renumbering is a breaking change. The rule behind the list: a question is asked once, prefilled where an earlier file already answers it, and never re-asked by a later stage. "Prefilled from" names that source; "—" means the question is genuinely this stage's own. Wording is the skill's canonical form; the conversation adapts it to the user's language.
+**Version 4 (idea 0.3.1).** One row per question, in the order it is asked. **The IDs are stable identifiers** — `profile/questions.md` (setup skill) refers to them; renumbering is a breaking change. The rule behind the list: a question is asked once, prefilled where an earlier file already answers it, and never re-asked by a later stage. "Prefilled from" names that source; "—" means the question is genuinely this stage's own. Wording is the skill's canonical form; the conversation adapts it to the user's language.
 
 ## Director (`idea`) — first call only
 
@@ -42,6 +42,7 @@ Collect is an interview, not a questionnaire: the fixed questions below frame it
 | C5 | Did I get this right: …? (replay, deliberately slightly wrong when useful) | per thread | — | Process & systems |
 | C6 | Was this tried before — why did it fail? | per thread | — | Earlier attempts `[evidence]` |
 | C7 | Personal data involved? Legal, ethics, works council, norms? | per card | — | Personal data, Legal / ethics / standards |
+| C14 | Who would use it — internal team, company-wide, or external / public — and roughly how many? When are the peaks, is office hours enough or 24×7, and which systems or providers would it depend on? | per card | — | Users & scale |
 | C8 | Which departments do you work with most — and per handoff: what arrives late, wrong, twice or not at all? | interface round, before a regular close | — | interface cards, both departments |
 | C9 | Before I suggest anything — which ideas do you already have in mind? (quantity target ~8) | ideas step, silent-first | — | new cards, Origin: own idea |
 | C10 | Which of these AI patterns fits the pains we modelled — knowledge assistant · read-and-check · draft generation · report automation · classify-and-route · forecast · translate? (several, never one) | after C9, model rich | — | new cards, Origin: AI pattern suggestion |
@@ -67,7 +68,7 @@ Every question in every stage may be skipped (RULES §5): it is not re-asked, th
 | V3 | Which data does the solution need — does it exist, digital, accessible, current? preparation little / medium / much, whose time? | per card, K.o. | Data situation | V3 |
 | V4 | What kind of AI solution — knowledge assistant, read-and-check, draft generation, classify-and-route, forecast, translate, other? products on the market, references? | per card | "Imported" section | V4 |
 | V5 | A fixed process where AI does one step (A), a curated system needing upkeep (B), or a system that learns from operation (C)? who maintains it? could it be one class simpler? | per card | — | V5 |
-| V6 | Which effort class for the build — and which operating model is plausible: internal, a service provider, or unclear? (names and time shares are asked in build intake) | per card, K.o. | "Imported" section | V6 |
+| V6 | Which effort class for the build — and which operating model is plausible: internal, a service provider, or unclear? Does running cost grow with use — roughly what per use, against the value per use? (names, time shares and cost figures are asked in build intake) | per card, K.o. | "Imported" section | V6 |
 | V7 | If the AI is wrong once and nobody notices — worst case? And can one tell right from wrong, how fast? | per card, two lights | — | V7 damage / verifiability |
 | V8 | Personal data? certifications or norms touched? works council? may data leave the house? — who is the contact for anything yellow? | per card, K.o. | Personal data, Legal / ethics / standards | V8 |
 | V9 | Who owns the process and stands behind the idea? do future users want it? which company goal? who loses something? | per card, K.o. | Strategy link, Stakeholders & needs | V9 |
@@ -98,6 +99,7 @@ Runs instead of the stages above when `00-idea.md` says `track: focus`. The proj
 | FF5 | Is the kind of solution already fixed? | profile | Solution pattern |
 | FF6 | Whose view do we need — roles, each with a 2–4 letter code? | profile `scope.md` departments | Perspectives |
 | FF7 | Does the product run differently at different places, channels or for different user groups? (optional) | — | Touchpoints / variants |
+| FF8 | Who will use it — internal team, company-wide, or external / public — and roughly how many? Peaks, office hours or 24×7, critical systems or providers? | profile `scope.md` | Users and scale |
 
 ### Stage 1 — idea-focus-collect (interviewer): a contribution session
 

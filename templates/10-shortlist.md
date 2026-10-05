@@ -60,6 +60,7 @@ _Result of idea-evaluate and **contract H1** to maquette. Each entry is self-con
 - **Earlier attempts:** <…> [evidenced|estimated|unknown]
 - **Personal data:** <…>
 - **Legal / ethics / standards:** <…>
+- **Users & scale:** <…> [evidenced|estimated|unknown]
 - **Strategy link:** <…> [evidenced|estimated|unknown]
 - **Riskiest assumption:** <…>
 - **Minimum success criterion:** <…>
