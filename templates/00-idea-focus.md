@@ -9,7 +9,7 @@ input: —
 # --- only in 00-idea.md ---
 track: focus                 # explore | focus — set once at the first call, never changed in this workspace
 org: <organisation or department>
-code: <2–4 letters, prefixes every session and contribution ID, e.g. IMP>
+code: <2–5 letters, prefixes every session and contribution ID, e.g. IMP>
 language: en                 # language of the result files' content
 git: no                      # yes | no — checked by the Director at start
 profile: none                # none | profile/ (if a profile folder exists)
@@ -37,7 +37,7 @@ budget_min: {session: 45, consolidate: 30, review: 60}
 ## Register
 
 - **Draft:** <— | 20-register-draft.md@<rev> (<status>)>
-- **Register:** <— | 10-register.md@<rev> (done <date>) | 10-register.v2.md …>
+- **Register:** <— | 10-register.md@<rev> (done <date>) · current: <file>@<rev> — the highest version is the one maquette and build read>
 - **Outcome:** <— | go | go with conditions | stop>
 
 ## Imports

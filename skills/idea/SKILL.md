@@ -35,13 +35,13 @@ Say which layout you found only if the user asks.
 
 **Every call** means every `start`, `next`, `redo` or equivalent — also in the middle of a running conversation — and additionally before every stage call. Run the consistency checks below each time, write what they find into `00-idea.md` first (`stale` in the index), and only then talk to the user. A check you remember from earlier in the conversation does not count; read the files again.
 
-0. On the first greeting of a session, mention the version from `<suite>/VERSION` in half a sentence ("idea 0.1.4"). Nothing else about internals. If the profile folder exists and is not empty, read `profile/README.md` and every file it names; carry their constraints into each stage call (RULES §8). If `profile/questions.md` exists, read it: report unknown IDs once, and pass each stage the rows that name its questions (RULES §8).
+0. On the first greeting of a session, mention the version from `<suite>/VERSION` in half a sentence ("idea 0.1.4"). Nothing else about internals. If `profile/profile.md` exists, read it and every file it names (a `profile/README.md` is only the explanation for humans — never the profile); carry their constraints into each stage call (RULES §8). If `profile/questions.md` exists, read it: report unknown IDs once, and pass each stage the rows that name its questions (RULES §8).
 1. Find the workspace (above). Read `00-idea.md` if it exists: the track, the card index, the session log, the imports table, the current stage. A `00-idea.md` without a `track` line was created before idea 0.3 and is `explore`. **If `track: focus`, continue with § Focus track instead of steps 2–3 below** — a focus workspace never runs the explore stages, and an explore workspace never runs the focus stages.
 2. Determine where things stand (explore track):
    - no cards → **collect** is next;
    - cards exist, none evaluated → collect can continue, or **evaluate** can start — ask which; if active cards overlap visibly (same process, same opportunity, same product for different touchpoints), name **all** such groups in one line ("001+002 look like duplicates, 003+004 like variants") and say they could be merged first;
    - evaluations exist, no shortlist → evaluate continues (more cards) or closes with the shortlist — ask which;
-   - shortlist `done` → say so, offer: another collect round, a new committee round (`10-shortlist.v2.md`), or hand over to maquette (project layout: "open the project folder, type start — maquette finds the shortlist and proposes the entry the committee named under Maquette order"; standalone: "open the maquette folder, type start, and when it asks what to start from, say *here is the shortlist:* and give this path: `<path to 10-shortlist.md>`").
+   - shortlist `done` → say so, offer: another collect round, a new committee round (`10-shortlist.v2.md`), or hand over to maquette — or to build when maquette is not installed or the user wants to skip the model (build reads one entry directly) — (project layout: "open the project folder, type start — maquette finds the shortlist and proposes the entry the committee named under Maquette order"; standalone: "open the maquette folder, type start, and when it asks what to start from, say *here is the shortlist:* and give this path: `<path to 10-shortlist.md>`").
    Check for `.conflict.md` files and `stale` rows.
 3. Say, in two sentences, where the workspace stands and what happens now. Then act on the user's word (accept the equivalents in the user's language — German: weiter / nochmal / stopp):
    - **next** — run the stage determined above.
@@ -56,7 +56,7 @@ Say which layout you found only if the user asks.
 
 Ask one question at a time:
 
-1. **Organisation and code:** which company or department, and a 2–4 letter code that will prefix every card ID — in focus every session and contribution ID (Vertrieb → VTR, Produktmarketing → PMK). Propose the code, let the user correct. A profile may fix both.
+1. **Organisation and code:** which company or department, and a 2–5 letter code that will prefix every card ID — in focus every session and contribution ID (Vertrieb → VTR, Produktmarketing → PMK). Propose the code, let the user correct. A profile may fix both.
 1b. **Track (D5):** "Are we looking for ideas — or is the project already fixed and we collect what every stakeholder needs from it?" Ideas → `explore`; fixed project → `focus`. A profile may fix it (`Track:` line in `profile.md`). The track is set once per workspace and never changed; a second project gets a second workspace. For `focus`, skip question 2 (the mode is chosen per session) and continue with 3 and 4.
 2. **Mode of collect:** solo (the user works on their own ideas), collector (the user interviews colleagues and reports back), or import (ideas already exist in a file). Can change per session.
 3. **Git:** check silently whether the folder or a parent is a git repo (`git rev-parse --is-inside-work-tree` if a shell is available; else look for `.git`). Record `yes`/`no`. Then `git check-ignore -q` on the folder the results will live in (standalone: `ideas/<org-code>`; the path need not exist yet): if it is ignored (the workspace is a clone of the public repo), record `no (clone — work folder ignored)` instead. Never run `git init`; with `yes`, commits follow RULES §6. Tell the user the result in half a sentence.
@@ -93,7 +93,7 @@ A focus workspace (`track: focus` in `00-idea.md`) has one fixed project. Files:
 - sessions `done`, no draft → collect more, or **focus-consolidate** — ask which; name the perspectives not heard yet in half a sentence;
 - draft `in_progress` (a stop in the middle) → **focus-consolidate** continues;
 - draft `done`, no register → **focus-review** (or more sessions first — then the draft goes stale);
-- register `done` → say the outcome in one line and offer: more sessions and a new round (`10-register.v2.md`), or the next stage — maquette ("open the project folder, type start") or build when the register names build or maquette is not installed. maquette older than 0.7 and build older than 0.2 do not read the register yet: then say "start there with *here is the register:* and the path of `10-register.md`".
+- register `done` → say the outcome in one line and offer: more sessions and a new round (`10-register.v2.md`), or the next stage — maquette ("open the project folder, type start") or build when the register names build or maquette is not installed. **Version check** before you name the next stage: project layout → read `planning/suite/maquette/VERSION` and `planning/suite/build/VERSION`; standalone → ask nothing, say the minimum in half a sentence. maquette older than 0.7.0 or build older than 0.2.0 does not read `register/1`: say so plainly ("the installed maquette is 0.6.3 — it does not read the register yet; update the suite, or start there with *here is the register:* and the path of `10-register.md`"). Receiver new enough → say nothing about versions. A **partial** register (Session block: `Complete: partial`) → add in one sentence that the missing committee answers come as a new round (`10-register.v2.md`) and the next stage will notice it.
 
 The user's words work as in explore: **next**, **redo**, **stop**, **start**; **import** or a returned file → focus-collect in import mode. **merge / split** do not exist in focus — joining is consolidate's job; say so in one sentence.
 
@@ -101,7 +101,7 @@ The user's words work as in explore: **next**, **redo**, **stop**, **start**; **
 
 - focus-collect: frame → set `done`, write `Current` under Frame; session → one row in the Sessions table (perspective, date, mode, contribution range, status), advance **Next session** and **Next contribution** by the hand-back, store an import mapping under Imports.
 - focus-consolidate: write the draft's revision and status under Register.
-- focus-review: write register revision, date and outcome under Register.
+- focus-review: write register file, revision, date and outcome under Register, and `current:` the newest version; then the version check below (register `done`) before you name the next stage. A partial register → offer the second round when the missing members are ready.
 
 **Consistency checks, focus** (every call, before every stage, written into `00-idea.md` before you talk):
 

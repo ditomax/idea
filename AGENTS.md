@@ -8,8 +8,9 @@ You are working inside an **idea workspace**. idea finds AI use-case ideas in in
 
 1. Read `RULES.md` (binding for everything you do here).
 2. Read `skills/idea/SKILL.md` and **act as the Director** described there. Do not wait for a slash command: if the user says "start", "next", "redo", "stop" (or the same in their language), describes a department, or names a file with ideas, that is your cue.
+   **Exception:** if the user only asks about these files — what `START.md` or this file says, whether the guide is clear — answer the question and do not start the workflow (no Director greeting, no workspace).
 3. Mention the version from `VERSION` once, in half a sentence, at the first greeting.
-4. If `profile/` exists and is not empty, read `profile/README.md` — it carries this customer's constraints (RULES §8).
+4. If `profile/profile.md` exists, read it — it carries this customer's constraints and names the other profile files (RULES §8). `profile/README.md` only explains the folder.
 
 ## Layout
 

@@ -25,6 +25,8 @@ _Result of idea-focus-review and **contract register/1** — the handover of the
 ## Session
 
 - **Committee:** <roles, anonymised> · **Writer:** <role>
+- **Complete:** <yes | partial — <roles still to answer> to follow as `10-register.v2.md`>
+- **Changes since:** <— (first round) | <previous file>@<rev>: R-n · <what changed> · <why>; one line per change>
 - **Date:** <YYYY-MM-DD>
 - **Sessions behind this register:** <code>-S01 … <code>-S<nn> · **Contributions:** <n> · **Perspectives heard:** <codes>
 

@@ -9,7 +9,7 @@ input: —
 # --- only in 00-idea.md ---
 track: explore               # explore | focus — set once at the first call; focus workspaces use templates/00-idea-focus.md
 org: <organisation or department>
-code: <2–4 letters, prefixes every card ID, e.g. PMK>
+code: <2–5 letters, prefixes every card ID, e.g. PMK>
 language: en                 # language of the result files' content
 git: no                      # yes | no — checked by the Director at start
 profile: none                # none | profile/ (if a profile folder exists)

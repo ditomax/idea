@@ -6,13 +6,13 @@ revision: 1
 created: <YYYY-MM-DDThh:mm>
 updated: <YYYY-MM-DDThh:mm>
 input: cards/<ID>-card.md@<rev>, evaluations/<ID>-eval.md@<rev>, …   # every ranked card AND its evaluation, paths relative to the work folder
-contract: H1/2               # handover contract version; H1/2 read by maquette ≥ 0.6.0 (older maquette reads it as H1/1 and ignores the additions)
+contract: H1/2               # handover contract version; H1/2 read by maquette ≥ 0.6.0 (older maquette reads it as H1/1 and ignores the additions) and by build ≥ 0.2.0 (Path S)
 next_maquette: <ID>          # the entry the committee sends into the next maquette — exactly one ID, or "open"
 ---
 
 # Shortlist <org code>: <session title or date>
 
-_Result of idea-evaluate and **contract H1** to maquette. Each entry is self-contained: the maquette Director reads only this file, proposes the entry named under "Maquette order" (the user confirms or picks another — exactly one), and sparring prefills from that entry. Ideas never disappear: what is not on the shortlist is under "Parked / rejected" with a reason._
+_Result of idea-evaluate and **contract H1** to maquette (or, without a maquette, to build — Path S). Each entry is self-contained: the maquette Director reads only this file, proposes the entry named under "Maquette order" (the user confirms or picks another — exactly one), and sparring prefills from that entry. Ideas never disappear: what is not on the shortlist is under "Parked / rejected" with a reason._
 
 ## Maquette order
 

@@ -1,12 +1,12 @@
 # idea — Every question the skillset asks a human
 
-**Version 4 (idea 0.3.1).** One row per question, in the order it is asked. **The IDs are stable identifiers** — `profile/questions.md` (setup skill) refers to them; renumbering is a breaking change. The rule behind the list: a question is asked once, prefilled where an earlier file already answers it, and never re-asked by a later stage. "Prefilled from" names that source; "—" means the question is genuinely this stage's own. Wording is the skill's canonical form; the conversation adapts it to the user's language.
+**Version 4 (idea 0.3.2).** One row per question, in the order it is asked. **The IDs are stable identifiers** — `profile/questions.md` (setup skill) refers to them; renumbering is a breaking change. The rule behind the list: a question is asked once, prefilled where an earlier file already answers it, and never re-asked by a later stage. "Prefilled from" names that source; "—" means the question is genuinely this stage's own. Wording is the skill's canonical form; the conversation adapts it to the user's language.
 
 ## Director (`idea`) — first call only
 
 | # | Question | Prefilled from | Note |
 | --- | --- | --- | --- |
-| D1 | Which company or department — and a 2–4 letter code that prefixes every card ID? (proposed, user corrects) | profile | once per workspace |
+| D1 | Which company or department — and a 2–5 letter code that prefixes every card ID? (proposed, user corrects) | profile | once per workspace |
 | D5 | Track: are we looking for ideas (explore) — or is the project fixed and we collect what every stakeholder needs from it (focus)? | profile (`Track:` line) | once per workspace, never changed; asked right after D1 |
 | D2 | Mode of collect: solo, collector, or import? | — | explore only; may change per session |
 | D3 | Git: is the folder a repository? | checked silently, result told | never `git init`; a clone of the public repo counts as no |
@@ -135,7 +135,7 @@ Priorities are not asked here; the contributors' own values are carried.
 
 | # | Question | When | Prefilled from | Result |
 | --- | --- | --- | --- | --- |
-| FR1 | Who is at the table (roles), and who writes? | opening | — | Session |
+| FR1 | Who is at the table (roles), and who writes? Is everyone who should decide present? | opening | — | Session (`Complete:` yes or partial) |
 | FR2 | Here are all ten lights for the project, each with the items it rests on — corrections? | once, one table | register draft, frame | Project check |
 | FR3 | Does this stop the project — pass, pass with a condition, or fail? (fail: what would have to happen for it to stop blocking?) | per K.o. candidate and per non-green K.o. field | draft K.o. candidates | K.o. decisions; a condition becomes a MUST item |
 | FR4 | Outcome go / go with conditions / stop — and what would tip it? | once | K.o. decisions | Outcome |
@@ -145,6 +145,7 @@ Priorities are not asked here; the contributors' own values are carried.
 | FR8 | Which items must the maquette show? | closing, maquette only | MUST items | Demo focus |
 | FR9 | Who is the sponsor who decides after the next stage? | closing | — | Handover |
 | FR10 | Decision date? | closing | — | Handover |
+| FR11 | (second round, partial committee) Here is the register as the first round decided it — where do you disagree (light, K.o. decision, conflict, priority, demo focus, sponsor)? Anything new that must be in? | second round only | previous `10-register.md` | Session *Changes since*, Register |
 
 ## What idea hands over and never asks again
 

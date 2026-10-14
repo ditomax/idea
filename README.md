@@ -10,7 +10,7 @@ For users, `START.md` is enough — three steps, no installation. Conversation a
 
 If you are reading this from a link and have no local copy yet:
 
-1. Get one — `git clone https://github.com/ditomax/idea` or unzip the latest release from https://github.com/ditomax/idea/releases — into a folder the user chooses (default: `./idea` next to their other work). That download is the only network access; the "no network" rule in `AGENTS.md` applies from then on.
+1. Get one — `git clone https://github.com/ditomax/idea` or unzip the latest release from https://github.com/ditomax/idea/releases — into a project folder **on the user's computer** that the user chooses and can see and open (default: `./idea` next to their other work) — never only into your own sandbox or a temporary copy the user cannot see; if you cannot write there, tell the user which step to do themselves. That download is the only network access; the "no network" rule in `AGENTS.md` applies from then on.
 2. Work from inside that folder and read its `AGENTS.md`. Do not act as the Director from this README — the rules live in `RULES.md` and `skills/`.
 3. Layout: standalone (this folder as is) unless the user has a project with a `planning/` folder — then the suite belongs at `planning/suite/idea/` and `planning/AGENTS.md` is the entry point, not this file. That `planning/` form is produced by [skill-suite-setup](https://github.com/ditomax/skill-suite-setup) (see *The suite*), never assembled by hand.
 4. A clone gives updates via `git pull`; the user's work in `ideas/` is ignored by git, so nothing of it is ever committed to a clone. `hooks/` and `guard.py` are for skillset developers — ignore them.
@@ -50,13 +50,13 @@ Each skillset works on its own. Anyone who wants more than one of them, or a cus
 
 ## Contracts
 
-- **Out — H1.** `10-shortlist.md` (contract `H1/2`) is read by maquette. The committee names under **Maquette order** which entry is built next and, for an umbrella entry, which variant the demo shows; maquette ≥ 0.6.0 proposes exactly that entry, the user confirms or picks another — always exactly one. maquette 0.4–0.5 reads the file as `H1/1` (lists the entries, ignores the additions). Sparring prefills from the chosen entry instead of asking again. Every entry is self-contained, an umbrella entry including its Variants table.
+- **Out — H1.** `10-shortlist.md` (contract `H1/2`) is read by maquette and by build ≥ 0.2.0 (Path S — one entry, no maquette). The committee names under **Maquette order** which entry is built next and, for an umbrella entry, which variant the demo shows; maquette ≥ 0.6.0 proposes exactly that entry, the user confirms or picks another — always exactly one. maquette 0.4–0.5 reads the file as `H1/1` (lists the entries, ignores the additions). Sparring prefills from the chosen entry instead of asking again. Every entry is self-contained, an umbrella entry including its Variants table.
 - **Out — register/1 (focus).** `10-register.md` is a contract of its own, not a shortlist version: one project, its frame, the project check and outcome, and every item `R-<n>` with its priority. maquette ≥ 0.7.0 and build ≥ 0.2.0 read it and account for every item; older versions start cold, where the file can be pasted.
 - **In — foreign cards.** Ideas that already exist in a spreadsheet or another tool enter through collect's import step, mapped onto cards with the gaps marked `[unknown]`; the mapping is remembered per format.
 
 Both seams are optional. maquette also starts from an idea in prose; idea also works without maquette.
 
-**Compatibility.** Out: `10-shortlist.md` is contract `H1/2` (additive to `H1/1`), fully read by maquette ≥ 0.6.0, readable as `H1/1` by maquette ≥ 0.4.0. `10-register.md` is contract `register/1` (focus track), read by maquette ≥ 0.7.0 and build ≥ 0.2.0. In: none (foreign cards enter through collect's import). Version triples tested together are listed in [skill-suite-setup/compat.md](https://github.com/ditomax/skill-suite-setup/blob/main/compat.md). Changes: `CHANGELOG.md`.
+**Compatibility.** Out: `10-shortlist.md` is contract `H1/2` (additive to `H1/1`), fully read by maquette ≥ 0.6.0, readable as `H1/1` by maquette ≥ 0.4.0; one entry is read by build ≥ 0.2.0 (Path S). `10-register.md` is contract `register/1` (focus track), read by maquette ≥ 0.7.0 and build ≥ 0.2.0. In: none (foreign cards enter through collect's import). Version triples tested together are listed in [skill-suite-setup/compat.md](https://github.com/ditomax/skill-suite-setup/blob/main/compat.md). Changes: `CHANGELOG.md`.
 
 ## Structure
 

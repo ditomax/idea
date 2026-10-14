@@ -23,7 +23,7 @@ Two sentences in the user's language: the committee looks at the project as a wh
 Then, one at a time:
 
 1. **Currency:** if the draft or the frame is not `done`, or the draft is `stale`, hand back to the Director before anything else.
-2. **FR1 Committee:** who is at the table (roles, not names) and who writes?
+2. **FR1 Committee:** who is at the table (roles, not names) and who writes? Is everyone who should decide present? If not (a single member now, the others later), the review runs anyway and the register is **partial**: record who is still to answer; the Session block says `Complete: partial — <roles> to follow as 10-register.v2.md`, and that line goes under Handover "Open before or during the next stage". The later round is a redo (`10-register.v2.md`): same R-numbers, changes only by decision — never a fresh numbering.
 
 ## Step 1 — Project check (FR2)
 
@@ -79,6 +79,18 @@ Collect the open questions: items of type question, conflicts left open, waivers
 ## Read-back gate and writing
 
 Show the complete register inline — frame, project check, K.o. decisions, outcome, the sorted register, decided conflicts, glossary, open questions, out of scope, handover. Ask "Good as it is?" and write only after a yes. `10-register.md` carries `contract: register/1`, `track: focus`, `outcome`, `next`, and `input` with the frame and draft revisions. Hand back with `done` proposed. After `done` the register is not edited — a new round writes `10-register.v2.md`.
+
+## Second round (partial committee)
+
+When the register says `Complete: partial` and the missing members are ready, the Director runs this stage again as a **redo** that writes `10-register.v2.md` (`input:` the previous register, frame and draft with their revisions). It is a **delta round**, not a new review:
+
+1. Show the previous register's project check, K.o. decisions, conflicts and priorities as they stand — the decisions of the first round are valid, not provisional.
+2. The members now present correct only where they disagree: a light, a K.o. decision, a conflict, a priority, demo focus, sponsor. Each change is a decision with a reason; nothing changes silently.
+3. **New items** the new members raise: a condition of a K.o. decision → origin `review` as in Step 2; any other new requirement → also origin `review`, Sources "— (round 2, <role>)", next free R-number. If it needs stakeholder input first, it goes to Open questions instead (or the Director offers a new collect session, which makes draft and register stale).
+4. An item set to "won't" moves to Out of scope with its R-number; numbers are never reused or changed.
+5. Session block: `Complete: yes` (or still partial), plus **Changes since <previous file>@<rev>:** one line per change (R-ID · what · why).
+
+Read-back gate and writing as above; the previous register stays as it is (done is frozen).
 
 ## Hand-back
 
