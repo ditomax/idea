@@ -55,7 +55,7 @@ For every K.o. candidate of the draft and every K.o. field (V3, V6, V8, V9) that
 
 ## Step 3 — Outcome (FR4)
 
-**stop** if any gate failed · **go with conditions** if any pass has a condition or a K.o. field stays unknown · **go** otherwise. Add drivers pro, drivers contra, what would tip the outcome (the one assumption that would reverse it), the riskiest assumption of the project, and dissent (anonymised). The committee may overrule the rule with a reason; record it.
+**stop** if any gate failed · **go with conditions** if any pass has a condition or a K.o. field stays unknown · **go** otherwise. Add drivers pro, drivers contra, what would tip the outcome (the one assumption that would reverse it), the riskiest assumption of the project, and dissent (anonymised). The committee may overrule the outcome rule for **business** judgements, with a reason; record it. A gate that failed on privacy, data-protection, legal or safety grounds cannot be overruled: it stays failed until its resolution is documented — what was done, by whom, with which evidence (RULES §4.11). You never judge legal admissibility yourself.
 
 On **stop**, the register is still written — nothing is lost, `next: —`; steps 4–5 run only if the committee wants them.
 

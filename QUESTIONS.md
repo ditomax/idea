@@ -1,6 +1,6 @@
 # idea — Every question the skillset asks a human
 
-**Version 4 (idea 0.3.2).** One row per question, in the order it is asked. **The IDs are stable identifiers** — `profile/questions.md` (setup skill) refers to them; renumbering is a breaking change. The rule behind the list: a question is asked once, prefilled where an earlier file already answers it, and never re-asked by a later stage. "Prefilled from" names that source; "—" means the question is genuinely this stage's own. Wording is the skill's canonical form; the conversation adapts it to the user's language.
+**Version 5 (idea 0.3.3).** One row per question, in the order it is asked. **The IDs are stable identifiers** — `profile/questions.md` (setup skill) refers to them; renumbering is a breaking change. The rule behind the list: a question is asked once, prefilled where an earlier file already answers it, and never re-asked by a later stage. "Prefilled from" names that source; "—" means the question is genuinely this stage's own. Wording is the skill's canonical form; the conversation adapts it to the user's language.
 
 ## Director (`idea`) — first call only
 
@@ -9,7 +9,7 @@
 | D1 | Which company or department — and a 2–5 letter code that prefixes every card ID? (proposed, user corrects) | profile | once per workspace |
 | D5 | Track: are we looking for ideas (explore) — or is the project fixed and we collect what every stakeholder needs from it (focus)? | profile (`Track:` line) | once per workspace, never changed; asked right after D1 |
 | D2 | Mode of collect: solo, collector, or import? | — | explore only; may change per session |
-| D3 | Git: is the folder a repository? | checked silently, result told | never `git init`; a clone of the public repo counts as no |
+| D3 | Git: is the folder a repository? — and if yes: do I commit, or do you? | repository checked silently, result told | never `git init`; a clone of the public repo counts as no; when unsure the user commits (RULES §6) |
 | D4 | Language of the result files? | profile → chat language → explicit statement | confirmed in half a sentence |
 
 On later calls the Director asks at most one question: which of two possible next steps (collect again / evaluate; evaluate more / close with shortlist). A merge is started by the user's word or the committee's request, not by a Director question; the Director may mention visible overlaps in half a sentence.
@@ -39,7 +39,7 @@ Collect is an interview, not a questionnaire: the fixed questions below frame it
 | C2 | Walk me through yesterday, from arriving to leaving. | cold start only | — | (entry point for probes) |
 | C3 | Probe of choice: annoying tasks · tasks nobody wants · high error rates · delayed processes · spreadsheets that no longer work · e-mail floods · version chaos · data silos · coordination problems · missing knowledge | core loop, per thread | — | Opportunity, Process & systems |
 | C4 | Tell me about the last time this happened — how often, how long, who all? (make it concrete) | per thread | — | Cost of the status quo `[evidence]` |
-| C5 | Did I get this right: …? (replay, deliberately slightly wrong when useful) | per thread | — | Process & systems |
+| C5 | Did I get this right: …? (replay as accurately as possible; a hypothesis is marked as one) | per thread | — | Process & systems |
 | C6 | Was this tried before — why did it fail? | per thread | — | Earlier attempts `[evidence]` |
 | C7 | Personal data involved? Legal, ethics, works council, norms? | per card | — | Personal data, Legal / ethics / standards |
 | C14 | Who would use it — internal team, company-wide, or external / public — and roughly how many? When are the peaks, is office hours enough or 24×7, and which systems or providers would it depend on? | per card | — | Users & scale |
