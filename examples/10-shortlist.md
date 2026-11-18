@@ -209,5 +209,7 @@ not relevant for this entry
 | --- | --- | --- | --- | --- |
 | EXG-002 | Service ticket triage | parked | rank 2, no maquette now: Service bound by ERP migration, owner not involved | after ERP go-live, end of Q1 2027, with the Head of Service |
 
+> Produced with the skill suite (guidelines only) — review and responsibility lie with the operator; see `DISCLAIMER.md`.
+
 ## Notes (human)
 

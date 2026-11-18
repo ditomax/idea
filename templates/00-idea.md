@@ -13,6 +13,7 @@ code: <2–5 letters, prefixes every card ID, e.g. PMK>
 language: en                 # language of the result files' content
 git: no                      # yes | no — checked by the Director at start
 profile: none                # none | profile/ (if a profile folder exists)
+disclaimer: —                # accepted <YYYY-MM-DD> — set by the Director after the user's ok (RULES §10)
 budget_min: {collect: 45, merge: 15, evaluate: 30, shortlist: 30}
 ---
 

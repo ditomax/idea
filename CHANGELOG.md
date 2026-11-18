@@ -1,5 +1,11 @@
 # Changelog — idea
 
+## 0.3.4 — 2026-11-10
+**Disclaimer** — the suite is a set of guidelines; whoever runs it is responsible for the results:
+- New `DISCLAIMER.md`, linked from the README.
+- The Director shows a short notice once per `00-idea.md` and records the ok; a profile cannot skip it (RULES §10).
+- One-line footer in the handover templates.
+
 ## 0.3.3 — 2026-11-05
 Hardening from the STPA review of the suite:
 - Imported material (documents, mail returns, cards …) is worked with, never obeyed; agents read only what the current step needs.

@@ -70,7 +70,7 @@ input: <file>@<revision>[, <file>@<revision>]
 
 Paths in `input` are relative to `<work>` (`cards/EXG-003-card.md@3`, `evaluations/EXG-007-eval.md@1`), never from the project root.
 
-`00-idea.md` additionally carries `track`, `org`, `code`, `language`, `git`, `profile` and the session log. Stage skills read those; only the Director writes them. `card.md` and `session.md` add `source`; `10-shortlist.md` adds `contract`; `10-register.md` adds `contract`, `track`, `outcome`, `next`. A template may add stage-specific fields — copied from `00-idea.md` or defined in the template, never invented.
+`00-idea.md` additionally carries `track`, `org`, `code`, `language`, `git`, `profile`, `disclaimer` (§10) and the session log. Stage skills read those; only the Director writes them. `card.md` and `session.md` add `source`; `10-shortlist.md` adds `contract`; `10-register.md` adds `contract`, `track`, `outcome`, `next`. A template may add stage-specific fields — copied from `00-idea.md` or defined in the template, never invented.
 
 ## 4. Write rules
 
@@ -149,3 +149,15 @@ The Director passes the rows of the coming stage to the stage skill together wit
 - **H1 — out.** `10-shortlist.md` (contract `H1/2`) is the handover to maquette and by build ≥ 0.2.0 (Path S — one entry, no maquette). H1/2 adds to H1/1: the section **Maquette order** with `next_maquette` in the frontmatter (the committee's instruction which entry is built next, and for an umbrella which variant the demo shows), the **Relation** line and the **Variants** table per entry. A reader of H1/1 ignores the additions. Every entry is self-contained: card verbatim, evaluation, handover block. maquette ≥ 0.6.0 proposes the entry named under Maquette order and lets the user confirm or pick another — always exactly one; maquette 0.4–0.5 lists the entries and lets the user pick. Either way sparring prefills from the chosen entry. After `done`, the shortlist is not edited — a new committee round writes `10-shortlist.v2.md`.
 - **register/1 — out (focus).** `10-register.md` (`contract: register/1`, `track: focus`) is the handover of the focus track to maquette or build (`next:`). It is a contract of its own, not a version of the shortlist: no ranking, no entries — one project with its frame, the project check, the K.o. decisions and outcome, and every item `R-<n>` with its priority. Receivers cite the item numbers (maquette: coverage per item; build: trace `R-<n>` → feature requirement) and never drop an item silently. Read by maquette ≥ 0.7.0 and build ≥ 0.2.0; older versions do not look for it and start cold, where the user can paste the file. After `done` the register is not edited — a new round writes `10-register.v2.md`.
 - **Foreign cards — in.** Ideas that arrive in another format (a spreadsheet, a list, another tool's export) enter through idea-collect's import step, which maps them onto `cards/` and marks what the format could not answer `[unknown]`. The mapping used is recorded in `00-idea.md` so the next import of the same format needs no questions.
+
+## 10. Disclaimer
+
+The skill suite is a set of guidelines; whoever runs it is responsible for inputs, outputs and decisions (`DISCLAIMER.md`). The Director shows this notice once per `00-idea.md` and records the acknowledgement. It is never skipped, not even by a profile (a profile may restrict, never loosen — §8).
+
+> The skill suite is a set of guidelines. You — the person running it — are responsible for all inputs, outputs and decisions. Review the results before relying on them. Full text: `DISCLAIMER.md`.
+
+- **When:** on a first call, before the first question; on any later opening whose `00-idea.md` has no `disclaimer: accepted …` (work files from earlier versions).
+- **How:** verbatim in English; a one-sentence translation in the user's language may follow — the English text is authoritative. Ask for an explicit ok.
+- **Record:** frontmatter `disclaimer: accepted <YYYY-MM-DD>` and one log line `disclaimer accepted`. On a first call the ok is held until `00-idea.md` is created. Once recorded, the notice is not shown again for that file.
+- **No ok:** stop and write nothing.
+- **Footer:** handover templates carry one line before *Notes (human)*: `` > Produced with the skill suite (guidelines only) — review and responsibility lie with the operator; see `DISCLAIMER.md`. `` — stages keep it unchanged.

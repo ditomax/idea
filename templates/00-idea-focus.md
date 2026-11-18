@@ -13,6 +13,7 @@ code: <2–5 letters, prefixes every session and contribution ID, e.g. IMP>
 language: en                 # language of the result files' content
 git: no                      # yes | no — checked by the Director at start
 profile: none                # none | profile/ (if a profile folder exists)
+disclaimer: —                # accepted <YYYY-MM-DD> — set by the Director after the user's ok (RULES §10)
 budget_min: {session: 45, consolidate: 30, review: 60}
 ---
 

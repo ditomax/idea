@@ -143,6 +143,8 @@ _Result of idea-evaluate and **contract H1** to maquette (or, without a maquette
 
 <!-- Consumed cards (merged into / split into) are listed here with their evaluation marked superseded; they never appear as entries. Variants of an umbrella that were not shortlisted are listed in the umbrella entry's Variants table, not here. -->
 
+> Produced with the skill suite (guidelines only) — review and responsibility lie with the operator; see `DISCLAIMER.md`.
+
 ## Notes (human)
 
 <!-- Off limits for all skills. Copied verbatim on every rewrite. -->

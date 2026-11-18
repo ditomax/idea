@@ -105,6 +105,8 @@ _Result of idea-focus-review and **contract register/1** — the handover of the
 - **Open before or during the next stage:** <…>
 - **Coverage:** every contribution of the sessions above is in an item or under Out of scope — see `20-register-draft.md@<rev>`.
 
+> Produced with the skill suite (guidelines only) — review and responsibility lie with the operator; see `DISCLAIMER.md`.
+
 ## Notes (human)
 
 <!-- Off limits for all skills. Copied verbatim on every rewrite. -->
